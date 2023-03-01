@@ -1,30 +1,19 @@
-<<<<<<< Updated upstream
+
 import logo from './logo.svg';
 import './App.css';
 import GlobalStyles from './Global';
 
+
+// Render components to build page
 function App() {
   return (
     <GlobalStyles />
 
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     
     </div>
   );
-=======
+
 // Render components to build page
 
 import GlobalStyles from './components/styles/Global';
@@ -50,7 +39,7 @@ function App() {
   </>
   </ThemeProvider>
   // );
->>>>>>> Stashed changes
+
   )
 }
 

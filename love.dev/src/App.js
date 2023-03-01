@@ -1,8 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import GlobalStyles from './Global';
 
 function App() {
   return (
+    <GlobalStyles />
+
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -20,6 +23,7 @@ function App() {
       </header>
     </div>
   );
+  )
 }
 
 export default App;

@@ -1,14 +1,16 @@
-// Render components to build page
-import React from 'react'
-import PinkButton from './components/styles/pinkButton.styled'
-import BlueButton from './components/styles/blueButton.styled'
+
+import logo from './logo.svg';
+import './App.css';
+
+import GlobalStyles from './components/styles/Global';
+import Landing from "./pages/Landing";
+
+
+
+
 function App() {
   return (
-
-      <BlueButton>
-      Test
-      </BlueButton>
-    
+    <Landing />
   );
 }
 

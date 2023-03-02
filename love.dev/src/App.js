@@ -92,5 +92,13 @@ function App() {
   return (
   
       <>
+    <GlobalStyles />
+ 
+  </>
+ 
+
+>>>>>>> Stashed changes
+
+>>>>>>> Stashed changes
 
 export default App;

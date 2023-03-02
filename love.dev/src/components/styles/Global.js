@@ -8,9 +8,9 @@ const GlobalStyles = createGlobalStyle`
   }
   body {
     background: rgb(218,77,141);
-background: linear-gradient(90deg, rgba(218,77,141,1) 39%, rgba(115,10,244,1) 83%);
-font-family:"futura-pt";
-font-size: 1.15em;
+    background: linear-gradient(90deg, rgba(218,77,141,1) 39%, rgba(115,10,244,1) 83%);
+    font-family:"futura-pt";
+    font-size: 1.15em;
     margin: 0;
   }
   `

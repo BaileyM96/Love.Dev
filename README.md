@@ -1,6 +1,6 @@
 # {Love.Dev}
 
-A dating app for developers BY developers
+A dating app for developers BY developers.
 
 ## Description
 
@@ -76,7 +76,7 @@ SOFTWARE.
 
 ## Features
 
-React Profiles, Location based features
+React Profiles, Google Maps API
 
 ## Feedback
 

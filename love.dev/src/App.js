@@ -1,8 +1,8 @@
 
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
+// import './App.css';
 
-import GlobalStyles from './components/styles/Global';
+import './components/styles/Global';
 import Landing from "./pages/Landing";
 
 
@@ -10,7 +10,9 @@ import Landing from "./pages/Landing";
 
 function App() {
   return (
-    <Landing />
+    <div style={{background: 'linear-gradient(175deg, rgba(218,77,141,1) 39%, rgba(115,10,244,1) 83%)'}}>
+      <Landing />
+    </div>
   );
 }
 

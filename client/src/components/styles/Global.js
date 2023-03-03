@@ -1,4 +1,3 @@
-import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
 @import url("https://p.typekit.net/p.css?s=1&k=blm4cda&ht=tk&f=10879&a=43882050&app=typekit&e=css");

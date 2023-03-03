@@ -13,5 +13,3 @@ export default function Login() {
       </LandingContainer>
     );
 };
-
-// export default Login;

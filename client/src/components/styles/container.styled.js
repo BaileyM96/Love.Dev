@@ -9,6 +9,7 @@ justify-content: space-between;
 align-items: center;
 height: 100vh;
     @media screen and (max-width: 390px) {
+@media screen and (max-width: 390px) {
         justify-content: center;
         align-items: center;
     }
@@ -21,6 +22,15 @@ justify-content: flex-start;
 align-items: flex-end;
 padding: 30px;
 `;
+export const LandingContainer = styled(Container)`
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-evenly;
+`;
+    
+
+
+export const InterestContainer = styled(Container)
 
 export const BigImageContainer = styled.div`
 display: flex;

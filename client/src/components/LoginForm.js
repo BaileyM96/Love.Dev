@@ -1,5 +1,5 @@
 import {LandingContainer} from './styles/container.styled'
-import H1 from './styles/loginH1.styled'
+import H1 from './styles/singleLineH1.styled'
 import Button from './styles/pinkButton.styled'
 import Input from './styles/genericInput.styled'
 

@@ -1,18 +1,15 @@
 
-import logo from './logo.svg';
-import './App.css';
-import GlobalStyles from './Global';
-import GlobalStyles from './components/styles/Global';
-import Landing from "./pages/Landing";
-
+import Avatar from './components/Avatar'
 
 
 
 function App() {
   return (
-    <Landing />
+    <Avatar>
+
+    </Avatar>
   );
-}
+};
 // Render components to build page
 
 // import GlobalStyles from './components/styles/Global';

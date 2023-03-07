@@ -13,6 +13,13 @@ const typeDefs = gql`
     bio: String
 }
 
+type Like {
+  id: ID!
+  likedBy: User!
+  likedUser: User!
+  createdAt: String!
+}
+
   type Auth {
     token: ID!
     user: User
@@ -25,8 +32,10 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addUser(username: String!, email: String!, password: String!): Auth
+    addUser(name: String!, email: String!, password: String!, location: String!, age: String!, gender: String!, images: String!, bio: String!): Auth
     login(email: String!, password: String!): Auth
+    updateUser(id: ID!, name: String, email: String, password: String, location: String, age: String, gender: String, images: [String!], bio: String): User
+    removeUser(id: ID!): Boolean
   }
 `;
 

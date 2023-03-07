@@ -8,7 +8,7 @@ text-align: center;
 justify-content: space-between;
 align-items: center;
 height: 100vh;
-    @media screen and (max-width: 390px) {
+
 @media screen and (max-width: 390px) {
         justify-content: center;
         align-items: center;
@@ -30,7 +30,9 @@ export const LandingContainer = styled(Container)`
     
 
 
-export const InterestContainer = styled(Container)
+// export const InterestContainer = styled(Container)`
+
+// `;
 
 export const BigImageContainer = styled.div`
 display: flex;

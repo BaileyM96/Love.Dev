@@ -2,7 +2,12 @@ import PhotoButton from './styles/photoButton.styled';
 import H1 from './styles/singleLineH1.styled';
 // reusing the container from landning page
 import {LandingContainer} from './styles/container.styled';
-import { AvatarA, AvatarB, AvatarC, AvatarD, AvatarE } from './Avatars/AvatarA.png';
+import AvatarA from "../Avatars/AvatarA.png";
+import AvatarB from "../Avatars/AvatarB.png";
+import AvatarC from "../Avatars/AvatarC.png";
+import AvatarD from "../Avatars/AvatarD.png";
+import AvatarE from "../Avatars/AvatarE.png";
+
 
 const avatarPicker = () => {
     console.log('photoadded to userState')
@@ -10,9 +15,9 @@ const avatarPicker = () => {
 
 export default function Avatar() {
     return (
+        <div>
+            <H1>Pick Your Avatar</H1>
         <LandingContainer>
-            <H1> Pick Your Avatar</H1>
-
             <PhotoButton><img src={AvatarA} alt="Avatar A" onClick={avatarPicker}>
                 </img> 
             </PhotoButton>
@@ -30,6 +35,8 @@ export default function Avatar() {
             </PhotoButton>
 
         </LandingContainer>
+        </div>
+        
         
     );
 };

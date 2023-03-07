@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const H1 = styled.h1`
-    color: black;
+    color: white;
     font-size: 2em;
     text-align: center;
     width: 100%;

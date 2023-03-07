@@ -24,6 +24,33 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+    removeUser: async (parent, { userId }, { user }) => {
+      if (!user) {
+        throw new AuthenticationError('You must be logged in to delete a user');
+      }
+    
+      const deletedUser = await User.findByIdAndDelete(userId);
+    
+      if (!deletedUser) {
+        throw new UserInputError('User not found');
+      }
+    
+      return { message: `User ${deletedUser.name} successfully deleted` };
+    },
+    updateUser: async (parent, { id, name, email, password, location, age, gender, images, bio }, { user }) => {
+      if (!user) {
+        throw new AuthenticationError('You must be logged in to update a user');
+      }
+  
+      const updatedUser = await User.findByIdAndUpdate(id, { name, email, password, location, age, gender, images, bio }, { new: true });
+  
+      if (!updatedUser) {
+        throw new UserInputError('User not found');
+      }
+  
+      return updatedUser;
+    },
+    
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 

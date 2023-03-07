@@ -26,6 +26,11 @@ export const LandingContainer = styled(Container)`
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-evenly;
+    @media screen and (max-width: 390px) {
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
 `;
     
 

@@ -22,7 +22,7 @@ export default function Avatar() {
             formData.append('image', image);
     
             updateImage({
-                variables: {id: user.id, }
+                variables: {id: user.id, image: image }
             });
         };
             

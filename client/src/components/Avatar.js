@@ -31,24 +31,24 @@ export default function Avatar() {
     return (
         <div>
             <H1>Pick Your Avatar</H1>
-        <LandingContainer>
-            <PhotoButton><img src={AvatarA} alt="Avatar A" onClick={imageUpload}>
-                </img> 
-            </PhotoButton>
-            <PhotoButton><img src={AvatarB} alt="Avatar B" onClick={imageUpload}>
-                </img> 
-            </PhotoButton>
-            <PhotoButton><img src={AvatarC} alt="Avatar C" onClick={imageUpload}>
-                </img> 
-            </PhotoButton>
-            <PhotoButton><img src={AvatarD} alt="Avatar D" onClick={imageUpload}>
-                </img> 
-            </PhotoButton>
-            <PhotoButton><img src={AvatarE} alt="Avatar E" onClick={imageUpload}>
-                </img> 
-            </PhotoButton>
+            <LandingContainer>
+                <PhotoButton><img src={AvatarA} alt="Avatar A" onClick={imageUpload}>
+                    </img> 
+                </PhotoButton>
+                <PhotoButton><img src={AvatarB} alt="Avatar B" onClick={imageUpload}>
+                    </img> 
+                </PhotoButton>
+                <PhotoButton><img src={AvatarC} alt="Avatar C" onClick={imageUpload}>
+                    </img> 
+                </PhotoButton>
+                <PhotoButton><img src={AvatarD} alt="Avatar D" onClick={imageUpload}>
+                    </img> 
+                </PhotoButton>
+                <PhotoButton><img src={AvatarE} alt="Avatar E" onClick={imageUpload}>
+                    </img> 
+                </PhotoButton>
 
-        </LandingContainer>
+            </LandingContainer>
         </div>
         
         

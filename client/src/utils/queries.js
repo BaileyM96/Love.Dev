@@ -29,3 +29,18 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+export const DELETE_PROFILE = gql`
+delete profile {
+  profile
+}
+
+`;
+
+export const MATCH = gql`
+
+`;
+
+export const UNMATCH = gql `
+
+`;

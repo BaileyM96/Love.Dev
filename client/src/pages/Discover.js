@@ -6,7 +6,7 @@ import Navbar from "../components/Navbar";
 export default function Discover() {
     return (
         <Card>
-           <Navbar></Navbar>
+         
         </Card>
     );
 }

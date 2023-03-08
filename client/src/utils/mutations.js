@@ -49,4 +49,41 @@ mutation updateUser($id: ID!, $name: String, $email: String, $password: String, 
 }
 `;
 
+export const CREATE_LIKE = gql`
+  mutation createLike($likedUserId: ID!) {
+    createLike(likedUserId: $likedUserId) {
+      id
+      likedBy {
+        _id
+        name
+        email
+        location
+        age
+        gender
+        images
+        bio
+      }
+      likedUser {
+        _id
+        name
+        email
+        location
+        age
+        gender
+        images
+        bio
+      }
+      createdAt
+    }
+  }
+`;
+
+export const DELETE_USER = gql`
+  mutation deleteUser($userId: ID!) {
+    deleteUser(userId: $userId) {
+      message
+    }
+  }
+`;
+
 

@@ -11,14 +11,14 @@ const typeDefs = gql`
     gender: String!
     images: [String!]
     bio: String
-}
+  }
 
-type Like {
-  id: ID!
-  likedBy: User!
-  likedUser: User!
-  createdAt: String!
-}
+  type Like {
+    id: ID!
+    likedBy: User!
+    likedUser: User!
+    createdAt: String!
+  }
 
   type Auth {
     token: ID!
@@ -26,16 +26,39 @@ type Like {
   }
 
   type Query {
-    users: [User]
+    users: [User]!
+    likes: [Like!]!
     user(email: String!): User
     me: User
+    userLikes(userId: ID!): [Like!]!
+    mutualLikes(userId: ID!): [Like!]!
+  }
+
+  input CreateUserInput {
+    name: String!
+    email: String!
+    password: String!
+    location: String!
+    age: Int!
+    gender: String!
+    images: [String!]
+    bio: String
+  }
+
+  input CreateLikeInput {
+    likedUserId: ID!
+  }
+
+  input RemoveLikeInput {
+    likedUserId: ID!
   }
 
   type Mutation {
-    addUser(name: String!, email: String!, password: String!, location: String!, age: String!, gender: String!, images: String!, bio: String!): Auth
+    addUser(input: CreateUserInput!): Auth
     login(email: String!, password: String!): Auth
-    updateUser(id: ID!, name: String, email: String, password: String, location: String, age: String, gender: String, images: [String!], bio: String): User
+    updateUser(id: ID!, name: String, email: String, password: String, location: String, age: Int, gender: String, images: [String!], bio: String): User
     removeUser(id: ID!): Boolean
+    createLike(input: CreateLikeInput!): Like!
   }
 `;
 

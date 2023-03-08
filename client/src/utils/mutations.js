@@ -7,6 +7,7 @@ export const USER_LOGIN = gql`
       user {
         _id
         name
+        userName
         email
         location
         age
@@ -24,6 +25,7 @@ export const CREATE_USER = gql`
     createUser(input: $input) {
       _id
       name
+      userName
       email
       location
       age
@@ -35,10 +37,11 @@ export const CREATE_USER = gql`
 `;
 
 export const UPDATE_USER = gql`
-mutation updateUser($id: ID!, $name: String, $email: String, $password: String, $location: String, $age: String, $gender: String, $images: [String!], $bio: String) {
-  updateUser(id: $id, name: $name, email: $email, password: $password, location: $location, age: $age, gender: $gender, images: $images, bio: $bio) {
+mutation updateUser($id: ID!, $name: String, $email: String, $password: String, $location: String, $age: Number, $gender: String, $images: [String!], $bio: String) {
+  updateUser(id: $id, name: $name, username: $username, email: $email, password: $password, location: $location, age: $age, gender: $gender, images: $images, bio: $bio) {
     _id
     name
+    userName
     email
     location
     age
@@ -56,6 +59,7 @@ export const CREATE_LIKE = gql`
       likedBy {
         _id
         name
+        userName
         email
         location
         age
@@ -66,6 +70,7 @@ export const CREATE_LIKE = gql`
       likedUser {
         _id
         name
+        userName
         email
         location
         age

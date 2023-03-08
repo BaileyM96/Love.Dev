@@ -17,6 +17,6 @@ const likeSchema = new Schema({
   },
 });
 
-const Likes = model('Like', likeSchema);
+const Like = model('Like', likeSchema);
 
 module.exports = Like;

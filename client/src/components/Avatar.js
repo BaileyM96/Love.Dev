@@ -9,9 +9,9 @@ import AvatarD from "../Avatars/AvatarD.png";
 import AvatarE from "../Avatars/AvatarE.png";
 
 
-// const avatarPicker = () => {
-//     console.log('photoadded to userState')
-// };
+const avatarPicker = () => {
+    console.log('photoadded to userState')
+};
 
 export default function Avatar() {
     return (
@@ -41,5 +41,5 @@ export default function Avatar() {
     );
 };
 
-//Uncomment this later
+
 

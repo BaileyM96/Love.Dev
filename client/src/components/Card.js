@@ -7,17 +7,20 @@ import { BigImageContainer, NameItems, NameItems2, InterestContainer, ListedInte
 import Button from "./styles/pinkButton.styled";
 import { HeaderContainer, H1, H2 } from "./styles/Header.styled";
 import Profiled from "../components/Profile";
-import { QUERY_USER } from '../utils/queries';
+import { QUERY_USERS } from '../utils/queries';
 
-
+// Added comment
 export default function Card({ name }) {
 
     // State variables 
     const [showProfilePage, setProfilePage] = useState(false);
     const [likeUser, setLikeUser] = useState(0);
-    const { data } = useQuery(QUERY_USER, {
-        variables: {name}
-    })
+
+    const { data } = useQuery(QUERY_USERS, {
+        variables: {name},
+    });
+
+    const User = data.User;
 
     function handleProfile() {
         setProfilePage(true);
@@ -32,7 +35,6 @@ export default function Card({ name }) {
         console.log('click');
     };
 
-    let user = QUERY_USER[likeUser];
 
     return (
         <>
@@ -48,12 +50,12 @@ export default function Card({ name }) {
 
         <BigImageContainer>
             <LargeProfile>
-                <ProfileImagesmall>{user.images}</ProfileImagesmall>
+                <ProfileImagesmall></ProfileImagesmall>
             </LargeProfile>
         </BigImageContainer>
 
         <NameContainer>
-           <NameItems>{user.name}</NameItems>
+           <NameItems>{User.name}</NameItems>
             <NameItems2>JavaScript</NameItems2>
         </NameContainer>
 

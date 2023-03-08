@@ -6,6 +6,10 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  userName: {
+    type: String,
+    require: false
+  },
   email: {
     type: String,
     required: true,
@@ -25,14 +29,12 @@ const userSchema = new Schema({
   },
   gender: {
     type: String,
-    enum: ['male', 'female', 'nonbinary'],
+    enum: ['Male', 'Female'],
     required: true,
   },
-  images: [
-    {
+  images: {
       type: String,
-    },
-  ],
+  },
   bio: {
     type: String,
   },

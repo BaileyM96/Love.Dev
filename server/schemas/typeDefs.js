@@ -4,6 +4,7 @@ const typeDefs = gql`
   type User {
     _id: ID
     name: String!
+    userName: String
     email: String!
     password: String!
     location: String!
@@ -31,11 +32,11 @@ const typeDefs = gql`
     user(email: String!): User
     me: User
     userLikes(userId: ID!): [Like!]!
-    mutualLikes(userId: ID!): [Like!]!
   }
 
   input CreateUserInput {
     name: String!
+    userName: String
     email: String!
     password: String!
     location: String!
@@ -49,14 +50,10 @@ const typeDefs = gql`
     likedUserId: ID!
   }
 
-  input RemoveLikeInput {
-    likedUserId: ID!
-  }
-
   type Mutation {
     addUser(input: CreateUserInput!): Auth
     login(email: String!, password: String!): Auth
-    updateUser(id: ID!, name: String, email: String, password: String, location: String, age: Int, gender: String, images: [String!], bio: String): User
+    updateUser(id: ID!, name: String, userName: String, email: String, password: String, location: String, age: Int, gender: String, images: [String!], bio: String): User
     removeUser(id: ID!): Boolean
     createLike(input: CreateLikeInput!): Like!
   }

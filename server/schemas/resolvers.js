@@ -22,16 +22,6 @@ const resolvers = {
     userLikes: async (parent, { userId }) => {
       return Like.find({ likedBy: userId });
     },
-    mutualLikes: async (parent, { userId }, { user }) => {
-      if (!user) {
-        throw new AuthenticationError('You must be logged in to see mutual likes');
-      }
-
-      const userLikes = await Like.find({ likedBy: user._id });
-      const likedUserIds = userLikes.map((like) => like.likedUser.toString());
-
-      return Like.find({ likedBy: userId, likedUser: { $in: likedUserIds } });
-    },
   },
 
   Mutation: {

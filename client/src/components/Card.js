@@ -9,7 +9,7 @@ import { HeaderContainer, H1, H2 } from "./styles/Header.styled";
 import Profiled from "../components/Profile";
 import { QUERY_USERS } from '../utils/queries';
 
-
+// Added comment
 export default function Card({ name }) {
 
     // State variables 

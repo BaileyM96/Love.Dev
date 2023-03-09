@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
-import { CardContainer, NameContainer } from "./styles/container.styled";
+import { CardContainer } from "./styles/container.styled";
+import { NameContainer } from './styles/container.styled';
 import { ProfileImagesmall } from "./styles/Profilephoto";
 import { Profile, LargeProfile, SelectButton } from "./styles/Profilephoto";
 import { BigImageContainer, NameItems, NameItems2, InterestContainer, ListedInterest, TrueFalseContainer } from "./styles/container.styled";
@@ -18,11 +19,12 @@ export default function Card() {
     
 
     const { data } = useQuery(QUERY_USERS, {
-        variables:{ gender: 'Female' },
+        // variables:{ gender: 'Female' },
     });
 
     const users = data?.users;
-    console.log(users)
+    console.log(users);
+
 
 
     function handleProfile() {
@@ -38,18 +40,64 @@ export default function Card() {
         console.log('click');
     };
 
+    // const randomUser = () {
+    //     return users[Math.floor(Math.random() * users.length )]; 
+    // };
+
+    // console.log(randomUser());
+
     
-
-
     return (
         <>
         <HeaderContainer>
-            <H2>Explore</H2>
+            <h1>Explore</h1>
         </HeaderContainer>
         
-        {users && users.map(user=>(<div><h4>{user.name}</h4></div>))}
+        {users && users.map(user=>(<div>
+            
+        <CardContainer>
+            <Profile onClick={handleProfile}>
+                <ProfileImagesmall></ProfileImagesmall>
+            </Profile>
+        </CardContainer>
 
         <CardContainer>
+            <Profile onClick={handleProfile}>
+                <ProfileImagesmall></ProfileImagesmall>
+            </Profile>
+        </CardContainer>
+
+        <BigImageContainer>
+            <LargeProfile>
+                <ProfileImagesmall></ProfileImagesmall>
+            </LargeProfile>
+        </BigImageContainer>
+
+    
+        <NameContainer>
+            <NameItems></NameItems>
+            <h4 key={user._id}>{user.name}</h4>
+            <NameItems2></NameItems2>
+            <h4>{user.location}</h4>
+        </NameContainer>
+
+        <HeaderContainer>
+            <h2>Bio</h2>
+        </HeaderContainer>
+        
+        <InterestContainer>
+            <ListedInterest>
+                  <p>{user.bio}</p>                   
+            </ListedInterest>
+        </InterestContainer>
+
+        <TrueFalseContainer>
+            <SelectButton onClick={handleLike}>False</SelectButton>
+            <SelectButton onClick={handleLike}>True</SelectButton>
+        </TrueFalseContainer>
+            </div>))}
+
+        {/* <CardContainer>
             <Profile onClick={handleProfile}>
                 <ProfileImagesmall></ProfileImagesmall>
             </Profile>
@@ -82,7 +130,7 @@ export default function Card() {
         <TrueFalseContainer>
             <SelectButton onClick={handleLike}>False</SelectButton>
             <SelectButton onClick={handleLike}>True</SelectButton>
-        </TrueFalseContainer>
+        </TrueFalseContainer> */}
         </>
     );
 }

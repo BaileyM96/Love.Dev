@@ -27,10 +27,10 @@ For the best user experiance, allow app access to your location.
 ## Usage
 
 Registration process:
-To use our website, you need to register an account by providing your basic information, such as your name, email address, and date of birth. You will also be required to create a username and password for your account.
+To use Love.Dev, you need to register an account by providing your basic information, such as your name, email address, and location. You will also be required to create a password for your account.
 
 Profile creation:
-Once you have registered an account, you will be prompted to create a profile. This is an essential step as it will help other users find and connect with you. You will be asked to provide information about yourself, such as your programming languages, experience level, and the type of projects you're interested in working on. You can also upload your resume or portfolio to your profile to showcase your work.
+Once you have registered an account on Love.Dev, you will be prompted to create a profile. This is an essential step as it will help other users find and connect with you. You will be asked to provide information about yourself, such as your programming languages, hobbies, and the type of projects you're interested in working on. 
 
 Search and matching:
 Our website provides a search feature that allows you to filter and find other users based on their programming skills, experience, and interests. We also offer a matching system that suggests compatible matches based on the information in your profile.

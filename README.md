@@ -7,10 +7,9 @@ A dating app for developers BY developers.
 {Love.Dev} app matches you with people who share your love of coding and technology. You'll get to know each other through fun programming challenges and quizzes. 
 Then when you're ready to meet in person, we'll suggest tech-related date ideas that you'll both love.
 
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+As a busy developer who values efficiency and compatibility, I want a dating app that I can use to filter potential matches by specific location, programming languages, and other criteria that are important to me. I also want the app to facilitate communication and connection with other developers in a way that's both efficient and enjoyable, such as through shared coding challenges or other interactive features. 
+
+Creating a community: A dating app for developers can create a community of like-minded individuals who share common interests and experiences, leading to stronger engagement and user retention. Ultimately, we wanted to help users find someone who share each others passion for technology and can appreciate the demands and rewards of the developer lifestyle.
 
 ## Table of Contents 
 
@@ -27,11 +26,22 @@ For the best user experiance, allow app access to your location.
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+Registration process:
+To use Love.Dev, you need to register an account by providing your basic information, such as your name, email address, and location. You will also be required to create a password for your account.
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative file path, add it to your README using the following syntax:
+Profile creation:
+Once you have registered an account on Love.Dev, you will be prompted to create a profile. This is an essential step as it will help other users find and connect with you. You will be asked to provide information about yourself, such as your programming languages, hobbies, and the type of projects you're interested in working on. 
 
-![Homepage of Love.Dev](assets/images/screenshot.png)
+Search and matching:
+Our website provides a search feature that allows you to filter and find other users based on their programming skills, experience, and interests. We also offer a matching system that suggests compatible matches based on the information in your profile.
+
+Communication:
+Our platform provides various communication tools to help you connect with other developers. You can send messages, virtual gifts, and even video chat with other users. You can also collaborate on coding projects through our platform.
+
+Privacy and Safety:
+We take user privacy and safety very seriously. We do not share your personal information with third parties without your consent. We also provide you with the option to control who can view your profile and contact you. We have implemented various safety measures to ensure that our platform is safe for all users.
+
+![Homepage of Love.Dev](/client/src/images/readme-example.png)
 
 ## Credits
 
@@ -41,9 +51,9 @@ Meet the creative team behind Love.Dev:
 
 - Alex Jaworski: https://github.com/Ajaws2022
 
-- Ileana Guzman: https://github.com/Ileanacz
-
 - Christian Zaldivar: https://github.com/Czaldivar419
+
+- Ileana Guzman: https://github.com/Ileanacz
 
 - Faith Wallace: https://github.com/sublime-sweetie
 
@@ -76,8 +86,8 @@ SOFTWARE.
 
 ## Features
 
-React Profiles, Google Maps API
+React Profiles, Location based matching, Apollo, MongoDB, Styled Components.
 
 ## Feedback
 
-If you have any questions or concerns please reach out to the creaters at their gitubs accounts. 
+If you have any questions or concerns please reach out to the creaters of love.dev via their githubs accounts. 

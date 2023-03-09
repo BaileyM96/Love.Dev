@@ -10,7 +10,7 @@ const typeDefs = gql`
     location: String!
     age: Int!
     gender: String!
-    images: [String!]
+    images: String!
     bio: String
   }
 
@@ -42,7 +42,7 @@ const typeDefs = gql`
     location: String!
     age: Int!
     gender: String!
-    images: [String!]
+    images: String!
     bio: String
   }
 

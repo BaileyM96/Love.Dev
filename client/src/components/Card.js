@@ -15,13 +15,14 @@ export default function Card() {
     // State variables 
     const [showProfilePage, setProfilePage] = useState(false);
     const [likeUser, setLikeUser] = useState(0);
+    
 
     const { data } = useQuery(QUERY_USERS, {
         variables:{ gender: 'Female' },
     });
 
-    const user = data?.user;
-    console.log(user)
+    const users = data?.users;
+    console.log(users)
 
 
     function handleProfile() {
@@ -37,6 +38,8 @@ export default function Card() {
         console.log('click');
     };
 
+    
+
 
     return (
         <>
@@ -44,6 +47,7 @@ export default function Card() {
             <H2>Explore</H2>
         </HeaderContainer>
         
+        {users && users.map(user=>(<div><h4>{user.name}</h4></div>))}
 
         <CardContainer>
             <Profile onClick={handleProfile}>

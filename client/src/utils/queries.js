@@ -1,19 +1,15 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_USERS = gql`
-query users($gender: String!) {
-  users(gender: $gender) {
+query users {
+  users {
     _id
-    userName
-    name
-    userName
-    email
-    location
     age
     gender
     images
-    bio
+    name
   }
+
 }`
 
 export const QUERY_ME = gql`

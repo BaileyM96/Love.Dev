@@ -8,6 +8,8 @@ query users {
     gender
     images
     name
+    bio
+    location
   }
 
 }`

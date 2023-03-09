@@ -9,6 +9,7 @@ import Button from "./styles/pinkButton.styled";
 import { HeaderContainer, H1, H2 } from "./styles/Header.styled";
 import Profiled from "../components/Profile";
 import { QUERY_USERS } from '../utils/queries';
+import { User } from './User';
 
 // Added comment
 export default function Card() {
@@ -19,7 +20,7 @@ export default function Card() {
     
 
     const { data } = useQuery(QUERY_USERS, {
-        // variables:{ gender: 'Female' },
+        variables:{ gender: 'Female' },
     });
 
     const users = data?.users;
@@ -40,11 +41,12 @@ export default function Card() {
         console.log('click');
     };
 
-    // const randomUser = () {
-    //     return users[Math.floor(Math.random() * users.length )]; 
-    // };
+    const randomUser = 
+        // return users[Math.floor(Math.random() * users.length )]; 
+         JSON.parse('{"name":"Flem","email":"fdumberrillo@biblegateway.com","password":"dVqqVcDaA3nr","location":"Hoogeveen","age":23,"gender":"Male","images":"http://dummyimage.com/167x100.png/5fa2dd/ffffff","bio":"Maecenas tristique, ac consequat metus sapien ut nunc."}')
 
-    // console.log(randomUser());
+
+    console.log(randomUser);
 
     
     return (
@@ -52,50 +54,8 @@ export default function Card() {
         <HeaderContainer>
             <h1>Explore</h1>
         </HeaderContainer>
-        
-        {users && users.map(user=>(<div>
-            
-        <CardContainer>
-            <Profile onClick={handleProfile}>
-                <ProfileImagesmall></ProfileImagesmall>
-            </Profile>
-        </CardContainer>
-
-        <CardContainer>
-            <Profile onClick={handleProfile}>
-                <ProfileImagesmall></ProfileImagesmall>
-            </Profile>
-        </CardContainer>
-
-        <BigImageContainer>
-            <LargeProfile>
-                <ProfileImagesmall></ProfileImagesmall>
-            </LargeProfile>
-        </BigImageContainer>
-
-    
-        <NameContainer>
-            <NameItems></NameItems>
-            <h4 key={user._id}>{user.name}</h4>
-            <NameItems2></NameItems2>
-            <h4>{user.location}</h4>
-        </NameContainer>
-
-        <HeaderContainer>
-            <h2>Bio</h2>
-        </HeaderContainer>
-        
-        <InterestContainer>
-            <ListedInterest>
-                  <p>{user.bio}</p>                   
-            </ListedInterest>
-        </InterestContainer>
-
-        <TrueFalseContainer>
-            <SelectButton onClick={handleLike}>False</SelectButton>
-            <SelectButton onClick={handleLike}>True</SelectButton>
-        </TrueFalseContainer>
-            </div>))}
+        {<User handleProfile={handleProfile} handleLike={handleLike} user={randomUser}/>}
+        {/* {users && users.map(user=>(<User handleProfile={handleProfile} handleLike={handleLike} user={user}/>))} */}
 
         {/* <CardContainer>
             <Profile onClick={handleProfile}>

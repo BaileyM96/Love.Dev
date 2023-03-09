@@ -10,17 +10,19 @@ import Profiled from "../components/Profile";
 import { QUERY_USERS } from '../utils/queries';
 
 // Added comment
-export default function Card({ name }) {
+export default function Card() {
 
     // State variables 
     const [showProfilePage, setProfilePage] = useState(false);
     const [likeUser, setLikeUser] = useState(0);
 
     const { data } = useQuery(QUERY_USERS, {
-        variables: {name},
+        variables:{ gender: 'Female' },
     });
 
-    const User = data.User;
+    const user = data?.user;
+    console.log(user)
+
 
     function handleProfile() {
         setProfilePage(true);
@@ -41,6 +43,7 @@ export default function Card({ name }) {
         <HeaderContainer>
             <H2>Explore</H2>
         </HeaderContainer>
+        
 
         <CardContainer>
             <Profile onClick={handleProfile}>
@@ -55,7 +58,7 @@ export default function Card({ name }) {
         </BigImageContainer>
 
         <NameContainer>
-           <NameItems>{User.name}</NameItems>
+            <NameItems></NameItems>
             <NameItems2>JavaScript</NameItems2>
         </NameContainer>
 

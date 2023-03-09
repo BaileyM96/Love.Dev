@@ -46,7 +46,7 @@ export default function Card() {
         <HeaderContainer>
             <H1>Interests</H1>
         </HeaderContainer>
-        
+        {/* change to Bio */}
         <InterestContainer>
             <ListedInterest>
                 <Button>Hiking</Button>

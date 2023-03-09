@@ -9,24 +9,34 @@ import AvatarD from "../Avatars/AvatarD.png";
 import AvatarE from "../Avatars/AvatarE.png";
 import { UPDATE_USER } from '../utils/mutations';
 import { useMutation  } from '@apollo/client';
-import { getProfile } from '../utils/auth'
+import Auth from '../utils/auth'
+import React, { useState, useEffect } from 'react';
 
 export default function Avatar() {
-        const user = getProfile();
+        // this requires a user to be logged in for this function to work
 
-        const [updateImage, {loading}] = useMutation(UPDATE_USER);
-    
+        // const user = Auth.getProfile();
+
+        const [updateImage, { error }] = useMutation(UPDATE_USER);
+        const [showAlert, setShowAlert] = useState(false);
+
         const imageUpload = (event) => {
             const image = event.target.files[0];
             const formData = new FormData();
             formData.append('image', image);
-    
-            updateImage({
-                variables: {id: user.id, image: image }
-            });
+            // This also requires the user to be logged in
+            // updateImage({
+            //     variables: {id: user.id, image: image }
+            // });
         };
             
-    
+        useEffect(() => {
+            if (error) {
+              setShowAlert(true);
+            } else {
+              setShowAlert(false);
+            }
+          })
     
     return (
         <div>
@@ -54,6 +64,4 @@ export default function Avatar() {
         
     );
 };
-
-//Uncomment this later
 

@@ -14,7 +14,6 @@ export const Me = ({me}) => {
 
             <NameContainer>
                 <NameItems>First, Last</NameItems>
-                <h2>{me.name}</h2>
                 <NameItems2>Javascript</NameItems2>
             </NameContainer>
 

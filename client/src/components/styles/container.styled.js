@@ -126,9 +126,14 @@ img {
 }
 `;
 
-export const Form =styled.form`
+export const Form = styled.form`
 display: flex;
 justify-content: center;
 flex-direction: column;
 flex-wrap: wrap;
+`;
+
+export const Bio = styled.p`
+font-size: 18px;
+color: white;
 `;

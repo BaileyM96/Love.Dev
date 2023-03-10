@@ -21,6 +21,7 @@ export default function Card() {
         variables: { gender: 'Female' },
     });
 
+    // Data of users array
     const users = data?.users || []
     console.log(users);
 
@@ -41,6 +42,7 @@ export default function Card() {
         return <h1>Loading...</h1>;
     }
 
+    //generate random user from array
     const randomUser = users[Math.floor(Math.random() * users.length)];
 
     console.log(randomUser);
@@ -48,7 +50,7 @@ export default function Card() {
     return (
         <>
             <HeaderContainer>
-                <h1>Explore</h1>
+                <H2>Explore</H2>
             </HeaderContainer>
             {<User handleProfile={handleProfile} handleLike={handleLike} user={randomUser} />}
         </>

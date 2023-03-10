@@ -1,9 +1,28 @@
-import { MobileContainer, NavList, NavLinks, Titles } from "./styles/Mobile.styled";
+import React, { useState } from 'react';
+import { MobileContainer, NavList, NavLinks, Titles, BurgerButton } from "./styles/Mobile.styled";
+
+
 
 export default function Navbar() {
+
+    const [open, setOpen] = useState(false);
+
+    const handleMenu = () => {
+        setOpen(!open);
+
+    };
+
+
     return (
         <>
-        <MobileContainer>
+        {/* <BurgerButton onClick={handleMenu} open={open}>
+
+        </BurgerButton> */}
+        <MobileContainer open={open}>
+        
+        <BurgerButton onClick={handleMenu} open={open}>
+
+        </BurgerButton>
             <NavList>
                 <NavLinks>
                     <Titles>Matches</Titles>

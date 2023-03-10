@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { LandingContainer } from "./styles/container.styled";
 import H1 from "./styles/singleLineH1.styled";
 import Button from "./styles/pinkButton.styled";
 import Input from "./styles/genericInput.styled";
-
+import { Link } from 'react-router-dom'
 import Auth from '../utils/auth';
 import { CREATE_USER } from "../utils/mutations";
 import { useMutation } from "@apollo/client";
@@ -11,51 +11,39 @@ import { useMutation } from "@apollo/client";
 export default function SignupForm() {
 
     // State for form validation
-    const [userFormData, setUserFormData] = useState({ email: '', password: '', firstname: '', lastname: '', gender: '', birthdate: '', favlang: '' });
-    
-    const [validated] = useState(false);
+    const [userFormData, setUserFormData] = useState({ email: '', password: '', name: '', gender: '', age: '', location: '', bio: '', images: '' });
 
-    const [showAlert, setShowAlert] = useState(false);
-
-    const [createUser, { error }] = useMutation(CREATE_USER);
+    const [createUser, { error, data }] = useMutation(CREATE_USER);
+  
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setUserFormData({...userFormData, [name]: value });
+        setUserFormData({...userFormData, [name]: value,
+       });
     };
+   
 
-    useEffect(() => {
-        if (error) {
-          setShowAlert(true);
-        } else {
-          setShowAlert(false);
-        }
-      }, [error]);
-
+      //Signup event
       const handleFormSubmit = async (e) => {
-        e.preventDeafault();
+        e.preventDefault();
+        console.log(userFormData);
 
         try {
             const { data } = await createUser({
                 variables: { ...userFormData },
             });
 
-            console.log(data);
-            Auth.login(data.addUser.token);
-        }   catch (err) {
-            console.error(err);
+            Auth.login(data.createUser.token);
+        }   catch (e) {
+            console.error(e);
         }
-
-        setUserFormData({
-            email: '',
-            password: '',
-            firstname: '',
-            lastname: '',
-            gender: '',
-            birthdate: '',
-            favlang: '',
-        });
+      
       };
+
+      console.log(handleFormSubmit);
+
+   
+     
 
 
 
@@ -63,76 +51,96 @@ export default function SignupForm() {
         <LandingContainer>
         <H1>Create your account!</H1>
         {/* Email */}
-        <Input 
+        {data ? (
+          <p>
+            Success!
+            <Link to='/discover'></Link>
+          </p>
+        ) : (
+        
+        
+          <>
+        <Input
         placeholder='Email'
-        type="text"
+        type="email"
         name='email'
         onChange={handleInputChange}
         value={userFormData.email}
-        required>
-        </Input>
+        required
+        />
 
-        {/* Create Password */}
+    
         <Input 
         placeholder='Password'
         type='password'
         name='password'
         onChange={handleInputChange}
         value={userFormData.password}
-        required>
-        </Input>
+        required
+        />
 
-        {/* First Name */}
+      
         <Input 
-        placeholder='First Name'
+        placeholder='Name'
         type='text'
-        name='First Name'
+        name='name'
         onChange={handleInputChange}
-        value={userFormData.password}
-        required>
-        </Input>
+        value={userFormData.name}
+        required
+        />
 
-        {/* Last Name */}
-        <Input 
-        placeholder='Last Name'
-        type='text'
-        name='Last Name'
-        onChange={handleInputChange}
-        value={userFormData.password}
-        required>
-        </Input>
 
-        {/* Gender */}
+      
         <Input 
         placeholder='Gender'
         type='text'
-        name='Gender'
+        name='gender'
         onChange={handleInputChange}
-        value={userFormData.password}
-        required>
-        </Input>
+        value={userFormData.gender}
+        required
+        />
 
-        {/* Birth Date */}
+        
         <Input 
-        placeholder='Birthdate'
+        placeholder='Age'
         type='text'
-        name='Birthdate'
+        name='age'
         onChange={handleInputChange}
-        value={userFormData.password}
-        required>
-        </Input>
+        value={userFormData.age}
+        required
+        />
 
-        {/* Fav Lang */}
+       
         <Input 
-        placeholder='Favorite Language'
+        placeholder='Location'
         type='text'
-        name='password'
+        name='location'
         onChange={handleInputChange}
-        value={userFormData.password}
-        required>
-        </Input>
+        value={userFormData.location}
+        required
+        />
 
-        <Button>Signup</Button>
+        <Input 
+        placeholder='images'
+        type='text'
+        name='images'
+        onChange={handleInputChange}
+        value={userFormData.images}
+        required
+        />
+
+        <Input 
+        placeholder='Bio'
+        type='text'
+        name='bio'
+        onChange={handleInputChange}
+        value={userFormData.bio}
+        required
+        />
+        <Button onClick={handleFormSubmit}>Signup</Button>
+        
+        </>
+      )};
     </LandingContainer>
       );
 }

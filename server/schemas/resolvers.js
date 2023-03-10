@@ -25,7 +25,7 @@ const resolvers = {
   },
 
   Mutation: {
-    addUser: async (parent, { name, email, password, location, age, gender, images, bio }) => {
+    createUser: async (parent, { name, email, password, location, age, gender, images, bio }) => {
       const user = await User.create({ name, email, password, location, age, gender, images, bio });
       const token = signToken(user);
       return { token, user };
@@ -60,19 +60,19 @@ const resolvers = {
       const user = await User.findOne({ email });
 
       if (!user) {
-        throw new AuthenticationError('No user found with this email address');
+        throw new AuthenticationError('No user with this email found!');
       }
 
-      const correctPw = await user.isCorrectPassword(password);
+      const correctPw = await user.password;
 
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError('Incorrect password!');
       }
 
       const token = signToken(user);
-
       return { token, user };
     },
+
     createLike: async (parent, { likedUserId }, { user }) => {
       if (!user) {
         throw new AuthenticationError('You must be logged in to like a user');

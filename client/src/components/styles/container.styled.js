@@ -119,3 +119,10 @@ img {
     width: 100%;
 }
 `;
+
+export const Form =styled.form`
+display: flex;
+justify-content: center;
+flex-direction: column;
+flex-wrap: wrap;
+`;

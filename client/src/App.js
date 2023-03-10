@@ -30,7 +30,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <Navbar />
+        {/* <Navbar /> */}
         {/* <div style="{{background: 'linear-gradient(175deg, rgba(218,77,141,1) 39%, rgba(115,10,244,1) 83%)', width: '100%', height: '100%'}}>"> */}
           <div className="container">
             <Routes>

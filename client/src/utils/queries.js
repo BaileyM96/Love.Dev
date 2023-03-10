@@ -18,14 +18,12 @@ export const QUERY_ME = gql`
   query me {
     me {
       _id
-      name
-      userName
-      email
-      location
       age
       gender
       images
+      name
       bio
+      location
     }
   }
 `;

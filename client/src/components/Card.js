@@ -19,11 +19,11 @@ export default function Card() {
     const [likeUser, setLikeUser] = useState(0);
     
 
-    const { data } = useQuery(QUERY_USERS, {
+    const { loading, data } = useQuery(QUERY_USERS, {
         variables:{ gender: 'Female' },
     });
 
-    const users = data?.users;
+    const users = data?.users || [];
     console.log(users);
 
 
@@ -41,10 +41,15 @@ export default function Card() {
         console.log('click');
     };
 
-    const randomUser = 
-        // return users[Math.floor(Math.random() * users.length )]; 
-         JSON.parse('{"name":"Flem","email":"fdumberrillo@biblegateway.com","password":"dVqqVcDaA3nr","location":"Hoogeveen","age":23,"gender":"Male","images":"http://dummyimage.com/167x100.png/5fa2dd/ffffff","bio":"Maecenas tristique, ac consequat metus sapien ut nunc."}')
+    if (loading) {
+        return <div>Loading...</div>
+    }
 
+    
+
+    const randomUser = 
+         users[Math.floor(Math.random() * users.length )]; 
+        //  JSON.parse('{"name":"Flem","email":"fdumberrillo@biblegateway.com","password":"dVqqVcDaA3nr","location":"Hoogeveen","age":23,"gender":"Male","images":"http://dummyimage.com/167x100.png/5fa2dd/ffffff","bio":"Maecenas tristique, ac consequat metus sapien ut nunc."}')
 
     console.log(randomUser);
 
@@ -54,6 +59,7 @@ export default function Card() {
         <HeaderContainer>
             <h1>Explore</h1>
         </HeaderContainer>
+    
         {<User handleProfile={handleProfile} handleLike={handleLike} user={randomUser}/>}
         {/* {users && users.map(user=>(<User handleProfile={handleProfile} handleLike={handleLike} user={user}/>))} */}
 

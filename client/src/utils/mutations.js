@@ -23,15 +23,19 @@ export const LOGIN_USER = gql`
 export const CREATE_USER = gql`
   mutation createUser($input: UserInput!) {
     createUser(input: $input) {
-      _id
-      name
-      userName
-      email
-      location
-      age
-      gender
-      images
-      bio
+      token
+      user {
+        _id
+        name
+        userName
+        email
+        location
+        age
+        gender
+        images
+        bio
+        password
+      }
     }
   }
 `;

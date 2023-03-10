@@ -1,20 +1,12 @@
-import { useQuery } from '@apollo/client'
-import { QUERY_ME } from "../utils/queries";
-import { Me } from "./Me";
+import { BigImageContainer2 } from "./styles/container.styled";
+import { LargeProfile, ProfileImagesmall } from "./styles/Profilephoto";
+import { NameContainer, NameItems, NameItems2, InterestContainer, ListedInterest } from "./styles/container.styled";
+import Button from "./styles/pinkButton.styled";
 
-export default function ProfileComponent() {
 
-    const { loading, data } = useQuery(QUERY_ME);
-    const me = data?.me;
-    console.log(me);
-
-    if (loading) {
-        return <div>Loading...</div>
-    }
-    return (
-        <>
-        {<Me me={me}/>}
-            {/* <BigImageContainer2>
+export const Me = ({me}) => {
+    return (<div>
+            <BigImageContainer2>
                <LargeProfile>
                     <ProfileImagesmall></ProfileImagesmall>
                 </LargeProfile> 
@@ -22,6 +14,7 @@ export default function ProfileComponent() {
 
             <NameContainer>
                 <NameItems>First, Last</NameItems>
+                <h2>{me.name}</h2>
                 <NameItems2>Javascript</NameItems2>
             </NameContainer>
 
@@ -33,7 +26,6 @@ export default function ProfileComponent() {
                     <Button>Coding</Button>
                     <Button>Coding</Button>
                 </ListedInterest>
-            </InterestContainer> */}
-        </>
-    )
-}
+            </InterestContainer>
+    </div>)
+};

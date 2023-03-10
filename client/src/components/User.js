@@ -16,11 +16,11 @@ export const User = ({user ,handleProfile, handleLike}) => {
                 </Profile>
             </CardContainer>
     
-            <CardContainer>
+            {/* <CardContainer>
                 <Profile onClick={handleProfile}>
                     <ProfileImagesmall></ProfileImagesmall>
                 </Profile>
-            </CardContainer>
+            </CardContainer> */}
     
             <BigImageContainer>
                 <LargeProfile>
@@ -31,9 +31,9 @@ export const User = ({user ,handleProfile, handleLike}) => {
         
             <NameContainer>
                 <NameItems></NameItems>
-                <h2 key={user._id}>{user.name}</h2>
+                <h2 key={user._id}>{user.name}, {user.age}</h2>
                 <NameItems2></NameItems2>
-                <h3>{user.location}</h3>
+                <h3>{user.location}, {user.gender}</h3>
             </NameContainer>
     
             <HeaderContainer>

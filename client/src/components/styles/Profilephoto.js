@@ -19,10 +19,13 @@ width: 300px;
 height: 300px;
 `;
 
-export const SelectButton = styled.div`
+export const SelectButton = styled.button`
 border-radius: 50%;
 width: 80px;
 height: 80px;
-background-color: #F2F3F5;
+background-color: #4CC9F0;
+color: black;
+font-size: larger;
+font-weight: bolder;
 `;
 

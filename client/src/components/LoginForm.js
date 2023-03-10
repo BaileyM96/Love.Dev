@@ -3,10 +3,10 @@ import {LandingContainer} from './styles/container.styled';
 import H1 from './styles/singleLineH1.styled';
 import Button from './styles/pinkButton.styled';
 import Input from './styles/genericInput.styled';
-import { H2 } from './styles/Header.styled';
 import Auth from '../utils/auth';
 import { LOGIN_USER } from '../utils/mutations';
 import { useMutation  } from '@apollo/client';
+import { Redirect } from 'react-router-dom';
 
 export default function Login() {
   // Setting the state for login form
@@ -40,16 +40,15 @@ export default function Login() {
     //   e.preventDefault();
     //   e.stopPropagation();
     // }
-
+    
     //comment
     try {
       const { data } = await login({
         variables: { ...userFormData},
       });
-
       
-      console.log(data);
       Auth.login(data.login.token)
+      window.location.href = '/discover';
     } catch (err) {
       console.error(err);
     }
@@ -82,7 +81,7 @@ export default function Login() {
           value={userFormData.password}
           required>
           </Input>
-          <Button>Login</Button>
+          <Button onClick={handleF}>Login</Button>
       </LandingContainer>
     );
 };

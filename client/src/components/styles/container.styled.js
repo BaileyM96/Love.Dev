@@ -5,7 +5,7 @@ display: flex;
 flex-wrap: wrap;
 flex-direction: column;
 text-align: center;
-justify-content: space-between;
+justify-content: space-evenly;
 align-items: center;
 height: 100vh;
     
@@ -26,11 +26,11 @@ export const LandingContainer = styled(Container)`
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-evenly;
-    @media screen and (max-width: 390px) {
+    /* @media screen and (max-width: 390px) {
         justify-content: center;
         align-items: center;
         height: 100vh;
-    }
+    } */
 `;
 
 export const BigImageContainer = styled.div`

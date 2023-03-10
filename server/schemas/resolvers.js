@@ -1,11 +1,11 @@
-const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { AuthenticationError, UserInputError } = require('apollo-server-express');
+const { User, Like } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find();
+      return User.find({});
     },
     user: async (parent, { email }) => {
       return User.findOne({ email });
@@ -15,6 +15,12 @@ const resolvers = {
         return User.findOne({ _id: context.user._id });
       }
       throw new AuthenticationError('You need to be logged in!');
+    },
+    likes: async () => {
+      return Like.find();
+    },
+    userLikes: async (parent, { userId }) => {
+      return Like.find({ likedBy: userId });
     },
   },
 
@@ -50,7 +56,6 @@ const resolvers = {
   
       return updatedUser;
     },
-    
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
@@ -67,6 +72,21 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+    },
+    createLike: async (parent, { likedUserId }, { user }) => {
+      if (!user) {
+        throw new AuthenticationError('You must be logged in to like a user');
+      }
+
+      const existingLike = await Like.findOne({ likedBy: user._id, likedUser: likedUserId });
+
+      if (existingLike) {
+        throw new UserInputError('You have already liked this user');
+      }
+
+      const like = await Like.create({ likedBy: user._id, likedUser: likedUserId });
+
+      return like;
     },
   }
 };

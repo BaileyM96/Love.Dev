@@ -5,83 +5,95 @@ import Button from './styles/pinkButton.styled';
 import Input from './styles/genericInput.styled';
 import Auth from '../utils/auth';
 import { LOGIN_USER } from '../utils/mutations';
+import { Link } from 'react-router-dom';
 import { useMutation  } from '@apollo/client';
 
-export default function Login() {
-  // Setting the state for login form
-  const [userFormData, setUserFormData] = useState({email: '', password: ''});
-  const [validated] = useState(false);
-  const [showAlert, setShowAlert] = useState(false);
+const Login = (props) => {
+  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [login, { error, data }] = useMutation(LOGIN_USER);
 
-  // Need mutation for login
-  const [login, { error }] = useMutation (LOGIN_USER);
+  // update state based on form input changes
+  const handleChange = (event) => {
+    const { name, value } = event.target;
 
-  // Allow dynamic changes to the forms data
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setUserFormData({ ...userFormData, [name]: value });
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
   };
 
-  useEffect(() => {
-    if (error) {
-      setShowAlert(true);
-    } else {
-      setShowAlert(false);
-    }
-  })
-
-  // Handle the form submission
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
-
-    // const form = e.currentTarget;
-    // if (form.checkValidity() === false) {
-    //   e.preventDefault();
-    //   e.stopPropagation();
-    // }
-
-    //comment
+  // submit form
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
     try {
       const { data } = await login({
-        variables: { ...userFormData},
+        variables: { ...formState },
       });
 
-      
-      console.log(data);
-      Auth.login(data.login.token)
-    } catch (err) {
-      console.error(err);
+      Auth.login(data.login.token);
+window.location.href = '/Discover'
+    } catch (e) {
+      console.error(e);
     }
+    
 
-    // Set the form data
-    setUserFormData({
+    // clear form values
+    setFormState({
       email: '',
       password: '',
     });
   };
 
-    return (
-      <LandingContainer>
-          <H1>Welcome Back!</H1>
-          <Input 
-          placeholder='Email'
-          type="text"
-          name='email'
-          onChange={handleInputChange}
-          value={userFormData.email}
-          required>
-          </Input>
+  return (
+    <main className="flex-row justify-center mb-4">
+      <div className="col-12 col-lg-10">
+        <div className="card">
+          <h4 className="card-header bg-dark text-light p-2">Login</h4>
+          <div className="card-body">
+            {data ? (
+              <p>
+                Welcome back. Give us a moment to find your.{' '}
+                <Link to="/Discover">potential matches.</Link>
+              </p>
+            ) : (
+              <form onSubmit={handleFormSubmit}>
+                <input
+                  className="form-input"
+                  placeholder="Your email"
+                  name="email"
+                  type="email"
+                  value={formState.email}
+                  onChange={handleChange}
+                />
+                <input
+                  className="form-input"
+                  placeholder="******"
+                  name="password"
+                  type="password"
+                  value={formState.password}
+                  onChange={handleChange}
+                />
+                <button
+                  className="btn btn-block btn-info"
+                  style={{ cursor: 'pointer' }}
+                  type="submit"
+                >
+                  Submit
+                </button>
+              </form>
+            )}
 
-
-          <Input 
-          placeholder='Password'
-          type='password'
-          name='password'
-          onChange={handleInputChange}
-          value={userFormData.password}
-          required>
-          </Input>
-          <Button>Login</Button>
-      </LandingContainer>
-    );
+            {error && (
+              <div className="my-3 p-3 bg-danger text-white">
+                {error.message}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </main>
+  );
 };
+
+export default Login;

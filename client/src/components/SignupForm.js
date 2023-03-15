@@ -21,7 +21,7 @@ export default function SignupForm() {
         setUserFormData({...userFormData, [name]: value,
        });
     };
-   
+    
 
       //Signup event
       const handleFormSubmit = async (e) => {
@@ -29,30 +29,19 @@ export default function SignupForm() {
         console.log(userFormData);
 
         try {
-            const  data  = await createUser({
-                variables: {
-                  email: userFormData.email,
-                  password:userFormData.password,
-                  name:userFormData.name,
-                  gender:userFormData.gender,
-                  age:userFormData.age,
-                  location:userFormData.location,
-                  bio:userFormData.bio,
-                  images:userFormData.images,
-                },
-
-                
+            const { data } = await createUser({
+                variables: { ...userFormData },
             });
 
-            // const token = data.data.createUser.token;
-            // Auth.login(data.createUser.token)
-           console.log(userFormData)
+            Auth.login(data.createUser.token);
         }   catch (e) {
             console.error(e);
         }
       
       };
-      console.log(handleFormSubmit);
+      // console.log(userFormData)
+
+      
 
    
      
@@ -63,7 +52,7 @@ export default function SignupForm() {
         <LandingContainer>
         <H1>Create your account!</H1>
         {/* Email */}
-        { data ? (
+        {data ? (
           <p>
             Success!
             <Link to='/discover'></Link>

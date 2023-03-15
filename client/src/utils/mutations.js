@@ -14,13 +14,12 @@ export const LOGIN_USER = gql`
 
 
 export const CREATE_USER = gql`
-  mutation createUser($name: String!, $email: String!, $password: String!, $location: String!, $age: Int!, $gender: String!, $images: String!, $bio: String!) {
-    createUser(name: $name, email: $email, password: $password, location: $location, age: $age, gender: $gender, images: $images, bio: $bio) {
+  mutation createUser($name: String!, $email: String!, $password: String!, $location: String!, $age: String!, $gender: String!, $images: String!, $bio: String!) {
+    createUser (name: $name, email: $email, password: $password, location: $location, age: $age, gender: $gender, images: $images, bio: $bio) {
       token
       user {
         _id
         name
-        userName
         email
         location
         age

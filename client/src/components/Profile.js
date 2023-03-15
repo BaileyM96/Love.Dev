@@ -1,39 +1,25 @@
 import { useQuery } from '@apollo/client'
 import { QUERY_ME } from "../utils/queries";
-import { Me } from "./Me";
+import Auth from '../utils/auth';
+import { useParams } from 'react-router-dom';
 
 export default function ProfileComponent() {
 
-    const { loading, data } = useQuery(QUERY_ME);
-    const me = data?.me;
-    console.log(me);
+  const { data, loading } = useQuery(QUERY_ME);
 
-    if (loading) {
-        return <div>Loading...</div>
-    }
-    return (
+  const me = data?.me;
+
+  if (loading) {
+    return <h1>Loading...</h1>;
+  };
+
+  console.log();
+  
+    
+      return (
         <>
-        {<Me me={me}/>}
-            {/* <BigImageContainer2>
-               <LargeProfile>
-                    <ProfileImagesmall></ProfileImagesmall>
-                </LargeProfile> 
-            </BigImageContainer2>
-
-            <NameContainer>
-                <NameItems>First, Last</NameItems>
-                <NameItems2>Javascript</NameItems2>
-            </NameContainer>
-
-            <InterestContainer>
-                <ListedInterest>
-                    <Button>Gaming</Button>
-                    <Button>Photography</Button>
-                    <Button>Coding</Button>
-                    <Button>Coding</Button>
-                    <Button>Coding</Button>
-                </ListedInterest>
-            </InterestContainer> */}
+        
         </>
-    )
-}
+      );
+  
+};

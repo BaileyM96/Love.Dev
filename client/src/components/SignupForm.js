@@ -29,17 +29,29 @@ export default function SignupForm() {
         console.log(userFormData);
 
         try {
-            const { data } = await createUser({
-                variables: { ...userFormData },
+            const  data  = await createUser({
+                variables: {
+                  email: userFormData.email,
+                  password:userFormData.password,
+                  name:userFormData.name,
+                  gender:userFormData.gender,
+                  age:userFormData.age,
+                  location:userFormData.location,
+                  bio:userFormData.bio,
+                  images:userFormData.images,
+                },
+
+                
             });
 
-            Auth.login(data.createUser.token);
+            // const token = data.data.createUser.token;
+            // Auth.login(data.createUser.token)
+           console.log(userFormData)
         }   catch (e) {
             console.error(e);
         }
       
       };
-
       console.log(handleFormSubmit);
 
    
@@ -51,7 +63,7 @@ export default function SignupForm() {
         <LandingContainer>
         <H1>Create your account!</H1>
         {/* Email */}
-        {data ? (
+        { data ? (
           <p>
             Success!
             <Link to='/discover'></Link>

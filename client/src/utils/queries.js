@@ -4,10 +4,10 @@ export const QUERY_USERS = gql`
 query users {
   users {
     _id
+    name
     age
     gender
     images
-    name
     bio
     location
   }

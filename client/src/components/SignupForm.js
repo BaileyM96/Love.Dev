@@ -33,10 +33,11 @@ export default function SignupForm() {
                 variables: { ...userFormData },
             });
 
-            Auth.login(data.createUser.token);
-        }   catch (e) {
-            console.error(e);
-        }
+            // Auth.login(data.login.token);
+window.location.href = '/discover'
+    } catch (e) {
+      console.error(e);
+    }
       
       };
       // console.log(userFormData)

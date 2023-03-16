@@ -16,16 +16,25 @@ import ProfileComponent from '../components/Profile';
 
 export default function Card() {
 
-    // State variables 
+    // State changes for the "true" and "false" buttons 
     const [showProfilePage, setProfilePage] = useState(false);
     const [likeUser, setLikeUser] = useState(0);
+
+    // QUERY_ME defined here
+    const { data: meData, loading: meLoading } = useQuery(QUERY_ME);
+    const currentUser = meData?.me;
+
+    console.log(currentUser)
+   
+
+    // QUERY_USERS && QUERY_ME goes here
     const { data, loading } = useQuery(QUERY_USERS, {
-        variables: {gender: 'male'}
+        variables: {gender: currentUser?.gender === 'Male' ? 'Female' : 'Male'}
     });
 
-    // Data of users array
+    // Getting theata for the QUERY_USERS 
     const users = data?.users || [];
-    console.log(users)
+    // console.log(users)
    
 
     function handleProfile() {
@@ -41,22 +50,22 @@ export default function Card() {
         console.log('click');
     };
 
-    if (loading) {
+    if (meLoading || loading) {
         return <h1>Loading...</h1>;
     };
-    console.log(data)
+    // console.log(data)
 
   
 
     // conditon for...
     //Giving certain genders based on users gender/prefrence
     //Need to define QUERY_ME so I can use it here
-    // if (users === 'Male') {
-    //     return 'Female';
+    // if (currentUser === 'Male') {
+    //     return users === 'Female';
     // }
 
-    // if (users === 'Female') {
-    //     return 'Male';
+    // if (currentUser === 'Female') {
+    //     return users === 'Male';
     // };
      
 
@@ -64,12 +73,12 @@ export default function Card() {
 
 
     
-
+    const filteredUsers = users.filter(user => user.gender !== currentUser.gender);
     
 
     //generate random user from array
-    const randomUser = users[Math.floor(Math.random() * users.length)];
-
+    const randomUser = filteredUsers[Math.floor(Math.random() * filteredUsers.length)];
+console.log(randomUser)
   
 
 

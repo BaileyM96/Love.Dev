@@ -28,10 +28,10 @@ export const User = ({user ,handleProfile, handleLike}) => {
         
             <NameContainer>
                 <NameItems>
-                    {user.name}, {user.age}
+                    {/* {user.name} */}
                 </NameItems>
                 <NameItems2>
-                    {user.location}, {user.gender}
+                    
                 </NameItems2>
             </NameContainer>
     
@@ -41,7 +41,7 @@ export const User = ({user ,handleProfile, handleLike}) => {
             
             <InterestContainer>
                 <Bio>
-                    {user.bio}
+                    
                 </Bio>                   
                 
             </InterestContainer>

@@ -44,6 +44,8 @@ export default function Card() {
         return <h1>Loading...</h1>;
     };
 
+  
+
     // conditon for...
     //Giving certain genders based on users gender/prefrence
     //Need to define QUERY_ME so I can use it here
@@ -65,6 +67,8 @@ export default function Card() {
 
     //generate random user from array
     const randomUser = users[Math.floor(Math.random() * users.length)];
+
+    console.log(randomUser)
 
 
 

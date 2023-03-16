@@ -7,10 +7,10 @@ import { Profile, LargeProfile, SelectButton } from "./styles/Profilephoto";
 import { BigImageContainer, NameItems, NameItems2, InterestContainer, ListedInterest, TrueFalseContainer } from "./styles/container.styled";
 import Button from "./styles/pinkButton.styled";
 import { HeaderContainer, H1, H2 } from "./styles/Header.styled";
-import Profiled from "../components/Profile";
+import Profiled from "./UserPage";
 import { QUERY_USERS, QUERY_ME } from '../utils/queries';
 import { User } from './User';
-import ProfileComponent from '../components/Profile';
+import ProfileComponent from './UserPage';
 
 
 

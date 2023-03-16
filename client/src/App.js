@@ -4,13 +4,7 @@ import Landing from "./pages/Landing";
 import Profile from './pages/ProfilePage';
 import Login from './pages/Login';
 import { setContext } from '@apollo/client/link/context';
-import Navbar from './components/Navbar';
-import ProfileComponent from './components/Profile';
 
-
-
-import Matches from './components/Matches';
-import Avatar from './components/Avatar'
 import { Route, Routes, BrowserRouter as  Router } from 'react-router-dom';
 
 

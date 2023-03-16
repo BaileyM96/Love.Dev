@@ -59,4 +59,21 @@ export const QUERY_LIKES = gql`
   }
 `;
 
+export const QUERY_USER = gql`
+  query user($email: String!) {
+    user(email: $username) {
+      _id
+      name
+      userName
+      email
+      location
+      age
+      gender
+      images
+      bio
+      
+    }
+  }
+`;
+
 

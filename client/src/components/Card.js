@@ -23,16 +23,15 @@ export default function Card() {
     // QUERY_ME defined here
     const { data: meData, loading: meLoading } = useQuery(QUERY_ME);
     const currentUser = meData?.me;
-
     console.log(currentUser)
    
 
-    // QUERY_USERS && QUERY_ME goes here
+    // QUERY_USERS with conditionals based on your gender
     const { data, loading } = useQuery(QUERY_USERS, {
         variables: {gender: currentUser?.gender === 'Male' ? 'Female' : 'Male'}
     });
 
-    // Getting theata for the QUERY_USERS 
+    // Getting the data for the QUERY_USERS 
     const users = data?.users || [];
     // console.log(users)
    
@@ -55,28 +54,12 @@ export default function Card() {
     };
     // console.log(data)
 
-  
 
-    // conditon for...
-    //Giving certain genders based on users gender/prefrence
-    //Need to define QUERY_ME so I can use it here
-    // if (currentUser === 'Male') {
-    //     return users === 'Female';
-    // }
-
-    // if (currentUser === 'Female') {
-    //     return users === 'Male';
-    // };
-     
-
-    
-
-
-    
+    // Filter the users array to only return certain genders based on the user
     const filteredUsers = users.filter(user => user.gender !== currentUser.gender);
     
 
-    //generate random user from array
+    //generate random user from array and use the filterdUsers variable
     const randomUser = filteredUsers[Math.floor(Math.random() * filteredUsers.length)];
 console.log(randomUser)
   

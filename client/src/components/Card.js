@@ -20,11 +20,12 @@ export default function Card() {
     const [showProfilePage, setProfilePage] = useState(false);
     const [likeUser, setLikeUser] = useState(0);
     const { data, loading } = useQuery(QUERY_USERS, {
-        
+        variables: {gender: 'male'}
     });
 
     // Data of users array
     const users = data?.users || [];
+    console.log(users)
    
 
     function handleProfile() {
@@ -43,17 +44,20 @@ export default function Card() {
     if (loading) {
         return <h1>Loading...</h1>;
     };
+    console.log(data)
+
+  
 
     // conditon for...
     //Giving certain genders based on users gender/prefrence
     //Need to define QUERY_ME so I can use it here
-    if (users === 'Male') {
-        return 'Female';
-    }
+    // if (users === 'Male') {
+    //     return 'Female';
+    // }
 
-    if (users === 'Female') {
-        return 'Male';
-    };
+    // if (users === 'Female') {
+    //     return 'Male';
+    // };
      
 
     
@@ -65,6 +69,8 @@ export default function Card() {
 
     //generate random user from array
     const randomUser = users[Math.floor(Math.random() * users.length)];
+
+  
 
 
 

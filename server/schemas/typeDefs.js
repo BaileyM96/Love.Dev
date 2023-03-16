@@ -50,6 +50,12 @@ const typeDefs = gql`
     likedUserId: ID!
   }
 
+  type Query {
+    users: [User]
+    user(email: String!): User
+    me: User
+  }
+
   type Mutation {
     createUser(email: String!, password: String!, name: String!, age: String!, location: String!, gender: String!, images: String, bio: String!): Auth
     login(email: String!, password: String!): Auth

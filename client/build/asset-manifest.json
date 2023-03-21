@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.9e11e7b2.css",
+    "main.js": "/static/js/main.5350b98d.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/Bailey Portrait.jpg": "/static/media/Bailey Portrait.f00ad82a957e45e7c843.jpg",
+    "static/media/blank-profile-picture-973460_1280.png": "/static/media/blank-profile-picture-973460_1280.c3f945216dc12c9498dc.png",
+    "index.html": "/index.html",
+    "main.9e11e7b2.css.map": "/static/css/main.9e11e7b2.css.map",
+    "main.5350b98d.js.map": "/static/js/main.5350b98d.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9e11e7b2.css",
+    "static/js/main.5350b98d.js"
+  ]
+}

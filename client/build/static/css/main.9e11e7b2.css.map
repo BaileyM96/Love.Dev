@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.9e11e7b2.css","mappings":"AAAA,EACI,iCACJ,CACA,KACI,0DACJ","sources":["App.css"],"sourcesContent":["* {\n    font-family: 'Montserrat', sans-serif;\n}\nbody {\n    background: linear-gradient(175deg, rgba(218,77,141,1) 39%, rgba(115,10,244,1) 83%);\n}"],"names":[],"sourceRoot":""}

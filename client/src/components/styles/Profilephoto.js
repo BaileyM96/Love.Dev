@@ -7,11 +7,13 @@ width: 50px;
 height: 50px;
 `;
 
-export const ProfileImagesmall = styled.img`
+export const ProfileImagesmall = styled.div`
 width: 100%;
-height: 100%;
 object-fit: contain;
-background-color: #F2F3F5;
+align-items: center;
+display: flex;
+justify-content: center;
+/* background-color: #F2F3F5; */
 `;
 
 export const LargeProfile = styled(Profile)`
@@ -29,3 +31,7 @@ font-size: larger;
 font-weight: bolder;
 `;
 
+export const Img = styled.img`
+width: 100%;
+align-items: center;
+`;

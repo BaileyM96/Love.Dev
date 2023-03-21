@@ -3,10 +3,11 @@ import { QUERY_ME } from "../utils/queries";
 import Auth from '../utils/auth';
 import { Bio, CardContainer } from "./styles/container.styled";
 import { NameContainer } from './styles/container.styled';
-import { ProfileImagesmall } from "./styles/Profilephoto";
+import { ProfileImagesmall, Img } from "./styles/Profilephoto";
 import { Profile, LargeProfile } from "./styles/Profilephoto";
 import { BigImageContainer, NameItems, NameItems2, InterestContainer, ListedInterest, TrueFalseContainer } from "./styles/container.styled";
 import { HeaderContainer, H2 } from "./styles/Header.styled";
+import  Bailey  from '../images/Bailey Portrait.jpg'
 
 export default function UserPage() {
   const { data, loading } = useQuery(QUERY_ME);
@@ -27,15 +28,11 @@ export default function UserPage() {
           </HeaderContainer>
 
 
-          <CardContainer>
-            <Profile>
-              <ProfileImagesmall />
-            </Profile>
-          </CardContainer>
-
           <BigImageContainer>
             <LargeProfile>
-              <ProfileImagesmall />
+              <ProfileImagesmall>
+                <Img src={Bailey} />
+              </ProfileImagesmall>
             </LargeProfile>
           </BigImageContainer>
 

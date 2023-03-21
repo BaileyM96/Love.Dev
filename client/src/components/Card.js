@@ -16,27 +16,27 @@ import ProfileComponent from './UserPage';
 
 export default function Card() {
 
+    // State for clicking on profile icon
     // State changes for the "true" and "false" buttons 
     const [showProfilePage, setProfilePage] = useState(false);
     const [likeUser, setLikeUser] = useState(0);
+    const [dislikedUser, setDislikedUser] = useState([]);
 
     // QUERY_ME defined here
     const { data: meData, loading: meLoading } = useQuery(QUERY_ME);
     const currentUser = meData?.me;
-
     console.log(currentUser)
    
 
-    // QUERY_USERS && QUERY_ME goes here
+    // QUERY_USERS with conditionals based on your gender
     const { data, loading } = useQuery(QUERY_USERS, {
         variables: {gender: currentUser?.gender === 'Male' ? 'Female' : 'Male'}
     });
 
-    // Getting theata for the QUERY_USERS 
+    // Getting the data for the QUERY_USERS 
     const users = data?.users || [];
-    // console.log(users)
    
-
+   
     function handleProfile() {
         setProfilePage(true);
     };
@@ -44,41 +44,35 @@ export default function Card() {
     if (showProfilePage) {
         return <ProfileComponent />;
     };
-    // Handles the buttons to like and dislike
+
+    // Handles the button to like
     function handleLike() {
         setLikeUser(likeUser + 1);
         console.log('click');
     };
 
+ 
+
+
     if (meLoading || loading) {
         return <h1>Loading...</h1>;
     };
-    // console.log(data)
-
-  
-
-    // conditon for...
-    //Giving certain genders based on users gender/prefrence
-    //Need to define QUERY_ME so I can use it here
-    // if (currentUser === 'Male') {
-    //     return users === 'Female';
-    // }
-
-    // if (currentUser === 'Female') {
-    //     return users === 'Male';
-    // };
-     
-
-    
 
 
-    
-    const filteredUsers = users.filter(user => user.gender !== currentUser.gender);
-    
+    // Filter the users array to only return opposite gender of the user
+    // and filters out the IDs you have disliked
+    const filteredUsers = users.filter(user => user.gender !== currentUser.gender && !dislikedUser.includes(user._id));
+    console.log(filteredUsers)
 
-    //generate random user from array
+
+    //generate random user from array and use the filterdUsers variable
     const randomUser = filteredUsers[Math.floor(Math.random() * filteredUsers.length)];
-console.log(randomUser)
+
+    // Remove randomUser id if disliked
+    function handleDislike() {
+        setDislikedUser([...dislikedUser, randomUser._id]);
+    }
+   
   
 
 
@@ -88,7 +82,7 @@ console.log(randomUser)
             <HeaderContainer>
                 <H2>Explore</H2>
             </HeaderContainer>
-            {<User handleProfile={handleProfile} handleLike={handleLike} user={randomUser} />}
+            {<User handleProfile={handleProfile} handleLike={handleLike} handleDislike={handleDislike} user={randomUser} />}
         </>
     );
 }

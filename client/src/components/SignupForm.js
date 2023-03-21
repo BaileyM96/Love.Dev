@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { LandingContainer } from "./styles/container.styled";
+import { Select } from "./styles/CustomSelect.styled";
 import H1 from "./styles/singleLineH1.styled";
 import Button from "./styles/pinkButton.styled";
 import Input from "./styles/genericInput.styled";
@@ -102,6 +103,10 @@ export default function SignupForm() {
         value={userFormData.gender}
         required
         />
+
+        {/* <Select 
+          value="0">Male
+        /> */}
 
         
         <Input 

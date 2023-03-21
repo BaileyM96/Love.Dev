@@ -3,9 +3,9 @@ import Discover from './pages/Discover';
 import Landing from "./pages/Landing";
 import Profile from './pages/ProfilePage';
 import Login from './pages/Login';
-import { setContext } from '@apollo/client/link/context';
 
-import { Route, Routes, BrowserRouter as  Router } from 'react-router-dom';
+import { setContext } from '@apollo/client/link/context';
+import { BrowserRouter as  Router, Route, Routes, } from 'react-router-dom';
 
 
 import './App.css';
@@ -56,7 +56,7 @@ function App() {
                 element={<Login />}
               />
               <Route 
-                path="/discover" 
+                path="/Discover" 
                 element={<Discover />}
               />
               <Route 

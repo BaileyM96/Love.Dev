@@ -52,10 +52,6 @@ function App() {
                 element={<Landing />}
               />
               <Route 
-                path="/login" 
-                element={<Login />}
-              />
-              <Route 
                 path="/Discover" 
                 element={<Discover />}
               />

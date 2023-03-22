@@ -38,7 +38,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-// TODO Set the apolloprovider and the react router dom
+
 function App() {
   return (
     <ApolloProvider client={client}>

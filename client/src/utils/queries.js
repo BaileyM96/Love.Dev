@@ -59,6 +59,15 @@ export const QUERY_LIKES = gql`
   }
 `;
 
+export const QUERY_DISLIKES = gql`
+query dislikes {
+  dislikes {
+    id
+    likedby
+  }
+}
+`
+
 export const QUERY_USER = gql`
   query user($email: String!) {
     user(email: $username) {

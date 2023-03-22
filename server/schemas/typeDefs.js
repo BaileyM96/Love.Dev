@@ -62,6 +62,7 @@ const typeDefs = gql`
     updateUser(id: ID!, name: String, userName: String, email: String, password: String, location: String, age: Int, gender: String, images: [String!], bio: String): User
     removeUser(id: ID!): Boolean
     createLike(input: CreateLikeInput!): Like!
+   
   }
 `;
 

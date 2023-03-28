@@ -1,0 +1,21 @@
+{
+  "short_name": "Love.Dev",
+  "name": "Love.Dev: A Dating App for Developers",
+  "description":"If you're reading this then odds are this is the dating website for you!" ,
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "256x256",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    }
+  ],
+  "start_url": "https://love-dev.herokuapp.com/",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

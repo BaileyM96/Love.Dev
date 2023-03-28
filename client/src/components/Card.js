@@ -7,50 +7,76 @@ import { Profile, LargeProfile, SelectButton } from "./styles/Profilephoto";
 import { BigImageContainer, NameItems, NameItems2, InterestContainer, ListedInterest, TrueFalseContainer } from "./styles/container.styled";
 import Button from "./styles/pinkButton.styled";
 import { HeaderContainer, H1, H2 } from "./styles/Header.styled";
-import Profiled from "../components/Profile";
-import { QUERY_USERS } from '../utils/queries';
+import Profiled from "./UserPage";
+import { QUERY_USERS, QUERY_ME } from '../utils/queries';
 import { User } from './User';
+import ProfileComponent from './UserPage';
 
-// Added comment
 export default function Card() {
+  // State for clicking on profile icon
+  // State changes for the "true" and "false" buttons
+  const [showProfilePage, setProfilePage] = useState(false);
+  const [likeUser, setLikeUser] = useState([]);
+  const [dislikedUser, setDislikedUser] = useState([]);
 
-    // State variables 
-    const [showProfilePage, setProfilePage] = useState(false);
-    const [likeUser, setLikeUser] = useState(0);
-    const { data, loading } = useQuery(QUERY_USERS, {
-        variables: { gender: 'Female' },
-    });
+  // QUERY_ME defined here
+  const { data: meData, loading: meLoading } = useQuery(QUERY_ME);
+  const currentUser = meData?.me;
+  console.log(currentUser);
 
-    const users = data?.users || []
-    console.log(users);
+  // QUERY_USERS with conditionals based on your gender
+  const { data: userData, loading: userLoading } = useQuery(QUERY_USERS, {
+    variables: { gender: currentUser?.gender === 'Male' ? 'Female' : 'Male' },
+  });
 
-    function handleProfile() {
-        setProfilePage(true);
-    };
+  // Getting the data for the QUERY_USERS
+  const users = userData?.users || [];
+  console.log("initial users", users);
 
-    if (showProfilePage) {
-        return <Profiled />;
-    };
+  function handleProfile() {
+    setProfilePage(true);
+  }
 
-    function handleLike() {
-        setLikeUser(likeUser + 1);
-        console.log('click');
-    };
+  if (showProfilePage) {
+    return <ProfileComponent />;
+  }
 
-    if (loading) {
-        return <h1>Loading...</h1>;
-    }
+  if (meLoading || userLoading) {
+    return <h1>Loading...</h1>;
+  }
 
-    const randomUser = users[Math.floor(Math.random() * users.length)];
+  // Filter the users array to only return opposite gender of the user
+  // and filters out the IDs you have disliked/liked
+const filteredUsers = users.filter(
+    (user) => user.gender !== currentUser.gender && !dislikedUser.includes(user._id) && !likeUser.includes(user._id)
+  );
+  console.log("filtered users", filteredUsers);
 
-    console.log(randomUser);
 
-    return (
-        <>
-            <HeaderContainer>
-                <h1>Explore</h1>
-            </HeaderContainer>
-            {<User handleProfile={handleProfile} handleLike={handleLike} user={randomUser} />}
-        </>
-    );
+  console.log("disliked users", [...dislikedUser]);
+  console.log("liked users", [...likeUser]);
+
+
+
+
+  //generate random user from array and use the filterdUsers variable
+  const randomUser = filteredUsers[Math.floor(Math.random() * filteredUsers.length)];
+
+  // Remove randomUser id if disliked
+  function handleDislike() {
+    setDislikedUser([...dislikedUser, randomUser._id]);
+  }
+
+  function handleLike() {
+    setLikeUser([...likeUser, randomUser._id]);
+  }
+
+  return (
+    <>
+      <HeaderContainer>
+        <H2>Explore</H2>
+      </HeaderContainer>
+      {<User handleProfile={handleProfile} handleLike={handleLike} handleDislike={handleDislike} user={randomUser} />}
+    </>
+  );
 }

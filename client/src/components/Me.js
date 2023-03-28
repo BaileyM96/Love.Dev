@@ -32,7 +32,6 @@ export const Me = () => {
 
             <NameContainer>
                 <NameItems>First, Last</NameItems>
-                <h2>name</h2>
                 <NameItems2>Javascript</NameItems2>
             </NameContainer>
 

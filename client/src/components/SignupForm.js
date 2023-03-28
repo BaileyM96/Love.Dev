@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { LandingContainer } from "./styles/container.styled";
+import { Select } from "./styles/CustomSelect.styled";
 import H1 from "./styles/singleLineH1.styled";
 import Button from "./styles/pinkButton.styled";
 import Input from "./styles/genericInput.styled";
@@ -21,7 +22,7 @@ export default function SignupForm() {
         setUserFormData({...userFormData, [name]: value,
        });
     };
-   
+    
 
       //Signup event
       const handleFormSubmit = async (e) => {
@@ -34,13 +35,16 @@ export default function SignupForm() {
             });
 
             Auth.login(data.createUser.token);
-        }   catch (e) {
-            console.error(e);
-        }
-      
-      };
+              } catch (e) {
+              console.error(e);
+                }
 
-      console.log(handleFormSubmit);
+                window.location.href = '/discover'
+      
+              };
+      // console.log(userFormData)
+
+      
 
    
      
@@ -99,6 +103,10 @@ export default function SignupForm() {
         value={userFormData.gender}
         required
         />
+
+        {/* <Select 
+          value="0">Male
+        /> */}
 
         
         <Input 

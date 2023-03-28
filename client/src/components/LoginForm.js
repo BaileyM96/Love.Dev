@@ -47,42 +47,35 @@ window.location.href = '/Discover'
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Login</h4>
-          <div className="card-body">
+      <LandingContainer>
+        <H1>Login</H1>
             {data ? (
               <p>
                 Welcome back. Give us a moment to find your.{' '}
                 <Link to="/Discover">potential matches.</Link>
               </p>
             ) : (
-              <form onSubmit={handleFormSubmit}>
-                <input
-                  className="form-input"
-                  placeholder="Your email"
+
+
+                <>
+                <Input
+                  placeholder="Email"
                   name="email"
                   type="email"
                   value={formState.email}
                   onChange={handleChange}
+                  required
                 />
-                <input
-                  className="form-input"
-                  placeholder="******"
+
+                <Input
+                  placeholder="Password"
                   name="password"
                   type="password"
                   value={formState.password}
                   onChange={handleChange}
                 />
-                <button
-                  className="btn btn-block btn-info"
-                  style={{ cursor: 'pointer' }}
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </form>
+                <Button onClick={handleFormSubmit}>Login</Button>
+              </>
             )}
 
             {error && (
@@ -90,10 +83,7 @@ window.location.href = '/Discover'
                 {error.message}
               </div>
             )}
-          </div>
-        </div>
-      </div>
-    </main>
+   </LandingContainer>
   );
 };
 

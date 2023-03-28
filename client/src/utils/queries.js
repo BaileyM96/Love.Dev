@@ -4,10 +4,10 @@ export const QUERY_USERS = gql`
 query users {
   users {
     _id
+    name
     age
     gender
     images
-    name
     bio
     location
   }
@@ -55,6 +55,23 @@ export const QUERY_LIKES = gql`
         bio
       }
       createdAt
+    }
+  }
+`;
+
+export const QUERY_USER = gql`
+  query user($email: String!) {
+    user(email: $username) {
+      _id
+      name
+      userName
+      email
+      location
+      age
+      gender
+      images
+      bio
+      
     }
   }
 `;

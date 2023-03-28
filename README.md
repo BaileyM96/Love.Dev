@@ -1,13 +1,13 @@
-# {Love.Dev}
+# [Love.Dev]
 
 A dating app for developers BY developers.
 
 ## Description
 
-{Love.Dev} app matches you with people who share your love of coding and technology. You'll get to know each other through fun programming challenges and quizzes. 
+[Love.Dev] app matches you with people who share your love of coding and technology. 
 Then when you're ready to meet in person, we'll suggest tech-related date ideas that you'll both love.
 
-As a busy developer who values efficiency and compatibility, I want a dating app that I can use to filter potential matches by specific location, programming languages, and other criteria that are important to me. I also want the app to facilitate communication and connection with other developers in a way that's both efficient and enjoyable, such as through shared coding challenges or other interactive features. 
+As a busy developer who values efficiency and compatibility, I want a dating app that I can use to filter potential matches by specific location, programming languages, and other criteria that are important to me. I also want the app to facilitate communication and connection with other developers in a way that's both efficient and enjoyable. 
 
 Creating a community: A dating app for developers can create a community of like-minded individuals who share common interests and experiences, leading to stronger engagement and user retention. Ultimately, we wanted to help users find someone who share each others passion for technology and can appreciate the demands and rewards of the developer lifestyle.
 
@@ -20,7 +20,7 @@ Creating a community: A dating app for developers can create a community of like
 
 ## Installation
 
-{Love.Dev} can be utilized on a desktop or via mobile app.
+[Love.Dev] can be utilized on a desktop or via mobile app.
 Users must have an internet connection to access the app. 
 For the best user experiance, allow app access to your location.
 
@@ -62,7 +62,7 @@ Meet the creative team behind Love.Dev:
 
 MIT License
 
-Copyright (c) 2023 Bailey Mejia, Faith Wallace, Christian Zaldivar, Alex Jaworski, Ileana Guzman
+Copyright (c) 2023 Bailey Mejia, Faith Wallace, Christian Zaldivar, Alex Jaworski
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

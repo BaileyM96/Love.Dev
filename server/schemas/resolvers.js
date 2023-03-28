@@ -10,9 +10,10 @@ const resolvers = {
     user: async (parent, { email }) => {
       return User.findOne({ email });
     },
-    me: async (parent, args, context) => {
-      if (context.user) {
-        return User.findOne({ _id: context.user._id });
+    me: async (parent, {_id}) => {
+      console.log(_id)
+      if (me) {
+        return User.findOne({ _id: _id});
       }
       throw new AuthenticationError('You need to be logged in!');
     },
@@ -88,6 +89,7 @@ const resolvers = {
 
       return like;
     },
+    
   }
 };
 

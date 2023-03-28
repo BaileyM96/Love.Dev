@@ -10,7 +10,7 @@ import ProfileComponent from './components/Profile';
 import Matches from './components/Matches';
 import Avatar from './components/Avatar'
 import { Route, Routes, BrowserRouter as  Router } from 'react-router-dom';
-
+import Nav from './components/Nav';
 
 import './App.css';
 import {
@@ -29,31 +29,8 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Router>
-        <div style="{{background: 'linear-gradient(175deg, rgba(218,77,141,1) 39%, rgba(115,10,244,1) 83%)', width: '100%', height: '100%'}}>">
-          <div className="container">
-            <Routes>
-              <Route 
-                path="/"
-                element={<Landing />}
-              />
-              <Route 
-                path="/login" 
-                element={<Login />}
-              />
-              <Route 
-                path="/discover" 
-                element={<Discover />}
-              />
-              <Route 
-                path="/me" 
-                element={<Profile />}
-              />
-            </Routes>
-          </div>
-        
-        /* </div> */
-      </Router>
+      <Nav />
+      <Discover />
     </ApolloProvider>
   )
 }

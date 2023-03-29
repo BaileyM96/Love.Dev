@@ -1,5 +1,6 @@
 const { AuthenticationError, UserInputError } = require('apollo-server-express');
-const { User, Like } = require('../models');
+//TODO add dislike model to the file
+const { User, Like, Dislike } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -16,6 +17,10 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    dislikes: async (parent, { email }) => {
+      const params = email ? { email } : {};
+      return Dislike.find(params);
+    },
     likes: async () => {
       return Like.find();
     },
@@ -23,6 +28,7 @@ const resolvers = {
       return Like.find({ likedBy: userId });
     },
   },
+
 
   Mutation: {
     createUser: async (parent, { name, email, password, location, age, gender, images, bio }) => {
@@ -73,22 +79,27 @@ const resolvers = {
       return { token, user };
     },
 
-    createLike: async (parent, { likedUserId }, { user }) => {
-      if (!user) {
-        throw new AuthenticationError('You must be logged in to like a user');
-      }
+    //////No longer using this liked resolver/////
 
-      const existingLike = await Like.findOne({ likedBy: user._id, likedUser: likedUserId });
+    // Christians Liked users when logged in
+    // createLike: async (parent, { likedUserId }, { user }) => {
+    //   if (!user) {
+    //     throw new AuthenticationError('You must be logged in to like a user');
+    //   }
 
-      if (existingLike) {
-        throw new UserInputError('You have already liked this user');
-      }
+    //   const existingLike = await Like.findOne({ likedBy: user._id, likedUser: likedUserId });
 
-      const like = await Like.create({ likedBy: user._id, likedUser: likedUserId });
+    //   if (existingLike) {
+    //     throw new UserInputError('You have already liked this user');
+    //   }
 
-      return like;
-    },
+    //   const like = await Like.create({ likedBy: user._id, likedUser: likedUserId });
+
+    //   return like;
+    // },
+
   }
 };
+
 
 module.exports = resolvers;

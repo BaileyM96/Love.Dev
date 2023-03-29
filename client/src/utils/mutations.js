@@ -79,15 +79,7 @@ export const CREATE_LIKE = gql`
   }
 `;
 
-export const DISLIKE_USER = gql`
-  mutation dislikeUser($dislikeUserId: ID!) {
-    dislikeUser(dislikeUserId: $dislikeUserId) {
-      _id
-      name
-    }
-  }
 
-`;
 
 export const DELETE_USER = gql`
   mutation deleteUser($userId: ID!) {

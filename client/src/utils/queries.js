@@ -14,6 +14,7 @@ query users {
 
 }`
 
+//Nested the dislikes inside the me to load the user's dislikes
 export const QUERY_ME = gql`
   query me {
     me {
@@ -24,6 +25,10 @@ export const QUERY_ME = gql`
       name
       bio
       location
+      dislikes {
+        _id
+        dislikedName
+      }
     }
   }
 `;
@@ -59,6 +64,18 @@ export const QUERY_LIKES = gql`
   }
 `;
 
+//Create new field for dislikes
+export const QUERY_DISLIKES = gql`
+  query getDislikes {
+    dislikes {
+      _id
+      dislikedName
+    }
+  }
+`;
+
+
+
 export const QUERY_USER = gql`
   query user($email: String!) {
     user(email: $username) {
@@ -71,7 +88,6 @@ export const QUERY_USER = gql`
       gender
       images
       bio
-      
     }
   }
 `;

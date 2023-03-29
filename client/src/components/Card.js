@@ -31,7 +31,7 @@ export default function Card() {
 
   // Getting the data for the QUERY_USERS
   const users = userData?.users || [];
-  console.log("initial users", users);
+  // console.log("initial users", users);
 
   function handleProfile() {
     setProfilePage(true);
@@ -54,7 +54,7 @@ const filteredUsers = users.filter(
 
 
   console.log("disliked users", [...dislikedUser]);
-  console.log("liked users", [...likeUser]);
+  // console.log("liked users", [...likeUser]);
 
 
 
@@ -66,7 +66,7 @@ const filteredUsers = users.filter(
   function handleDislike() {
     setDislikedUser([...dislikedUser, randomUser._id]);
   }
-
+  // Add user to 
   function handleLike() {
     setLikeUser([...likeUser, randomUser._id]);
   }

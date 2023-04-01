@@ -48,6 +48,16 @@ mutation updateUser($id: ID!, $name: String, $email: String, $password: String, 
 }
 `;
 
+// Allow user to dislike users profiles
+export const ADD_DISLIKE = gql`
+mutation addDislike($dislikedName: String!) {
+  addDislike(dislikedName: $dislikedName) {
+    _id
+    dislikedName
+  }
+}
+`;
+
 export const CREATE_LIKE = gql`
   mutation createLike($likedUserId: ID!) {
     createLike(likedUserId: $likedUserId) {

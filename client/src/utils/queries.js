@@ -14,7 +14,7 @@ query users {
 
 }`
 
-//Nested the dislikes inside the me to load the user's dislikes
+// TODO Create a way for the dislikes to refrence the user that was disliked
 export const QUERY_ME = gql`
   query me {
     me {
@@ -32,6 +32,7 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
 
 export const QUERY_LIKES = gql`
   query likes {

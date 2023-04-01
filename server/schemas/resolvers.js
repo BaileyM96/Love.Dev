@@ -11,16 +11,15 @@ const resolvers = {
     user: async (parent, { email }) => {
       return User.findOne({ email });
     },
-    me: async (parent, {_id}) => {
-      console.log(_id)
-      if (me) {
-        return User.findOne({ _id: _id});
-      }
-      throw new AuthenticationError('You need to be logged in!');
-    },
     dislikes: async (parent, { email }) => {
       const params = email ? { email } : {};
       return Dislike.find(params);
+    },
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOne({ _id: context.user._id});
+      }
+      throw new AuthenticationError('You need to be logged in!');
     },
     likes: async () => {
       return Like.find();
@@ -79,6 +78,22 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+    // let the user write to the database to add a dislike
+    addDislike: async (parent, { dislikedName }, context) => {
+      if (context.user) {
+        const dislike = await Dislike.create({
+          dislikedName: context.user.email,
+        });
+
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { dislikes: dislike._id } }
+        );
+
+        return dislike;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    }
 
     //////No longer using this liked resolver/////
 

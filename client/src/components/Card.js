@@ -22,14 +22,14 @@ export default function Card() {
   // QUERY_ME defined here
   const { data: meData, loading: meLoading } = useQuery(QUERY_ME);
   const currentUser = meData?.me;
-  console.log(currentUser);
+
 
   // QUERY_USERS with conditionals based on your gender
   const { data: userData, loading: userLoading } = useQuery(QUERY_USERS, {
     variables: { gender: currentUser?.gender === 'Male' ? 'Female' : 'Male' },
   });
 
-  // Getting the data for the QUERY_USERS
+  // data for the QUERY_USERS
   const users = userData?.users || [];
   // console.log("initial users", users);
 

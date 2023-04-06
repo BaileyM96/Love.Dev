@@ -39,7 +39,7 @@ export default function SignupForm() {
               console.error(e);
                 }
 
-                window.location.href = '/discover'
+                window.location.href = '/Discover'
       
               };
       // console.log(userFormData)
@@ -58,7 +58,7 @@ export default function SignupForm() {
         {data ? (
           <p>
             Success!
-            <Link to='/discover'></Link>
+            <Link to='/Discover'></Link>
           </p>
         ) : (
         

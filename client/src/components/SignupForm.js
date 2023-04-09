@@ -42,7 +42,7 @@ export default function SignupForm() {
                 window.location.href = '/Discover'
       
               };
-      console.log('/Discover')
+
 
       
 

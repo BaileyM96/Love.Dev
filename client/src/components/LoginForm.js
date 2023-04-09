@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Navigate } from 'react-router-dom';
 import {LandingContainer} from './styles/container.styled';
 import H1 from './styles/singleLineH1.styled';
 import Button from './styles/pinkButton.styled';
@@ -33,7 +34,7 @@ const Login = (props) => {
       });
 
       Auth.login(data.login.token);
-window.location.href = '/Discover'
+      window.location.href = '/Discover'
     } catch (e) {
       console.error(e);
     }
@@ -52,7 +53,8 @@ window.location.href = '/Discover'
             {data ? (
               <p>
                 Welcome back. Give us a moment to find your.{' '}
-                <Link to="/Discover">potential matches.</Link>
+                {/* changed the Link to Navigate for react router to change its location when rendered */}
+                <Navigate to="/Discover">potential matches.</Navigate>
               </p>
             ) : (
 

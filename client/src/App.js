@@ -1,6 +1,4 @@
-import './components/styles/Global';
 import Discover from './pages/Discover';
-import Landing from "./pages/Landing";
 import Profile from './pages/ProfilePage';
 import Login from './pages/Login';
 import { setContext } from '@apollo/client/link/context';
@@ -48,10 +46,6 @@ function App() {
             <Routes>
               <Route 
                 path="/"
-                element={<Landing />}
-              />
-              <Route 
-                path="/Login"
                 element={<Login />}
               />
               <Route 

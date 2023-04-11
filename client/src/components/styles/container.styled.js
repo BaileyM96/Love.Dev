@@ -26,12 +26,34 @@ export const LandingContainer = styled(Container)`
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-evenly;
-    /* @media screen and (max-width: 390px) {
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    } */
+        @media screen and (max-width: 390px) {
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 `;
+
+export const LoginContainer = styled.header`
+    display: flex;
+    flex-direction: column;
+    background-color: #333333;
+        @media screen and (max-width: 390px) {
+          
+            justify-content: flex-start;
+            align-items: center;
+            padding-top: 15%;
+        }
+`;
+
+export const InputContainer = styled.div`
+display: flex;
+padding-top: 35px;
+align-items: start;
+flex-direction: column;
+justify-content: flex-start;
+height: 100vh;
+`;
+
 
 export const BigImageContainer = styled.div`
 display: flex;

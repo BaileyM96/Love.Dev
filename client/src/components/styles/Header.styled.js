@@ -14,3 +14,14 @@ padding-left: 20px;
 export const H1 = styled(H2)`
     font-size: 32px;
 `;
+
+export const Text = styled.p`
+color: #FFFFFF;
+font-size: 18px;
+font-weight: bold;
+`;
+
+export const Span = styled.span`
+color: #ffffff;
+text-decoration: underline;
+`;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import {LoginContainer, InputContainer, } from './styles/container.styled';
-import {Text, Span} from './styles/Header.styled';
+import {Text, Text1, Span} from './styles/Header.styled';
 import Signup from '../components/SignupForm';
 import Button from './styles/pinkButton.styled';
 import Input from './styles/genericInput.styled';
@@ -93,7 +93,7 @@ const Login = (props) => {
                   onChange={handleChange}
                 />
                   <Button onClick={handleFormSubmit}>Login</Button>
-                  <Text>Don't have an account? <Span onClick={handleSignup}>Sign up here.</Span></Text>
+                  <Text1>Don't have an account? <Span onClick={handleSignup}>Sign up here.</Span></Text1>
                   </InputContainer>
             
                

@@ -21,6 +21,12 @@ font-size: 18px;
 font-weight: bold;
 `;
 
+export const Text1 = styled(Text)`
+padding: 5px 30px;
+font-size: 14px;
+font-weight: lighter;
+`;
+
 export const Span = styled.span`
 color: #ffffff;
 text-decoration: underline;

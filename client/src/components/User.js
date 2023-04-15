@@ -1,26 +1,17 @@
-import { Bio, CardContainer } from "./styles/container.styled";
+import { Awesome } from "./styles/container.styled";
 import { NameContainer } from './styles/container.styled';
 import { ProfileImagesmall } from "./styles/Profilephoto";
-import { Profile, LargeProfile, SelectButton, Img } from "./styles/Profilephoto";
-import { BigImageContainer, NameItems, NameItems2, InterestContainer, ListedInterest, TrueFalseContainer } from "./styles/container.styled";
-import { HeaderContainer, H1, H2 } from "./styles/Header.styled";
+import { LargeProfile, SelectButton, Img } from "./styles/Profilephoto";
+import { BigImageContainer, NameItems, TrueFalseContainer, DiscoverCard } from "./styles/container.styled";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCode } from '@fortawesome/free-solid-svg-icons'
 import  blank  from '../images/blank-profile-picture-973460_1280.png';
 
 
 
 
 export const User = ({user ,handleProfile, handleLike, handleDislike}) => {
-    return  (<div>
-            
-            <CardContainer>
-                <Profile onClick={handleProfile}>
-                    <ProfileImagesmall>
-                        <Img src={blank} />
-                    </ProfileImagesmall>
-                </Profile>
-            </CardContainer>
-    
-
+    return  (<div style={{height: '100vh'}}>
     
             <BigImageContainer>
                 <LargeProfile>
@@ -28,28 +19,24 @@ export const User = ({user ,handleProfile, handleLike, handleDislike}) => {
                     <Img  src={blank} />
                     </ProfileImagesmall>
                 </LargeProfile>
+
+                <DiscoverCard>
+                    <NameContainer>
+                        <NameItems>
+                            {user.name}, {user.age}
+                        </NameItems>
+                        <Awesome>
+                            <FontAwesomeIcon icon={faCode}  />
+                                <span style={{ color: 'black', width: '20px', height: '16px'}}> JavaScript</span>
+                        </Awesome>
+                        
+                        <div style={{fontWeight: '600'}}>Im looking for:</div>
+                        <div style={{fontWeight: '600'}}>Hobbies: Hello </div>
+                        <div style={{fontWeight: '600', overflow: 'hidden'}}>Bio: {user.bio}</div>
+                    </NameContainer>
+                </DiscoverCard>
             </BigImageContainer>
-    
-        
-            <NameContainer>
-                <NameItems>
-                    {user.name}, {user.age}
-                </NameItems>
-                <NameItems2>
-                    {user.location}, {user.gender}
-                </NameItems2>
-            </NameContainer>
-    
-            <HeaderContainer>
-                <H2>Bio</H2>
-            </HeaderContainer>
-            
-            <InterestContainer>
-                <Bio>
-                    {user.bio}
-                </Bio>                   
-                
-            </InterestContainer>
+
     
             <TrueFalseContainer>
                 <SelectButton onClick={handleDislike}>False</SelectButton>

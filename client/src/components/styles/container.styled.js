@@ -54,9 +54,23 @@ justify-content: flex-start;
 height: 100vh;
 `;
 
+export const DiscoverCard = styled.div`
+display: flex;
+border-radius: 0px 0px 10px 10px;
+width: 320px;
+height: 272px;
+background-color: #F5F6F7;
+`;
+
+
+export const DiscoverCard2 = styled(DiscoverCard)`
+border-radius: 10px;
+`;
 
 export const BigImageContainer = styled.div`
 display: flex;
+flex-direction: column;
+align-items: center;
 justify-content: center;
 `;
 
@@ -73,22 +87,34 @@ padding-top: 35px;
 export const NameContainer = styled.div`
 display: flex;
 flex-direction: column;
-justify-content: flex-start;
+font-size: 16px;
+flex-direction: column;
+justify-content: space-between;
 padding: 25px 0 20px 15px;
 `;
 
+// Need to know what font size is the name compared to age
 export const NameItems = styled.li`
-font-size: 36px;
+display: flex;
+font-size: 18px;
 font-weight: bolder;
 list-style: none;
-color: white;
+color: #212121;
 `;
 
+// Need to know the font size for the language
 export const NameItems2 = styled.li`
-font-size: 22px;
-font-weight: bold;
+font-size: 16px;
+font-weight: 500;
 list-style: none;
-color: white;
+color: #212121
+`;
+
+//Font awesome container 
+export const Awesome = styled.div`
+display: flex;
+align-items: center;
+color: #F72585;
 `;
 
 export const NameItems3 = styled(NameItems2)`
@@ -151,5 +177,6 @@ flex-wrap: wrap;
 
 export const Bio = styled.p`
 font-size: 18px;
-color: white;
+
 `;
+

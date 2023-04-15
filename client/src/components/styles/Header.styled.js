@@ -1,14 +1,22 @@
 import styled from 'styled-components';
 
-export const H2 = styled.h1`
-    color: white;
-    font-size: 26px;
+export const H2 = styled.div`
+   color: #212121
+
 `;
 
 export const HeaderContainer = styled.div`
 display: flex;
-justify-content: flex-start;
-padding-left: 20px;
+justify-content: space-evenly;
+align-items: center;
+margin: 60px 0 35px 80px;
+`;
+
+export const ProfileHeader = styled.header`
+display: flex;
+justify-content: center;
+margin: 60px 0 35px;
+
 `;
 
 export const H1 = styled(H2)`

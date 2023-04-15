@@ -27,6 +27,7 @@ export const User = ({user ,handleProfile, handleLike, handleDislike}) => {
                         </NameItems>
                         <Awesome>
                             <FontAwesomeIcon icon={faCode}  />
+                            {/*TODO Need to add in the users prefered coding language */}
                                 <span style={{ color: 'black', width: '20px', height: '16px'}}> JavaScript</span>
                         </Awesome>
                         

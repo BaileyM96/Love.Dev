@@ -9,7 +9,7 @@ import { ProfileImagesmall, Img, LargeProfile2, MePhotoContainer, MePhotos } fro
 import { BigImageContainer, NameItems } from "./styles/container.styled";
 import { ProfileHeader } from "./styles/Header.styled";
 import  Bailey  from '../images/Bailey Portrait.jpg'
-import { LoaderContainer } from './styles/Loader.styled';
+import { LoaderContainer, StyledLoader } from './styles/Loader.styled';
 import { StyledBurger } from './Burger/Burger.styled';
 
 export default function UserPage() {
@@ -20,7 +20,7 @@ export default function UserPage() {
   if (loading) {
     return (
       <LoaderContainer>
-        <StyledBurger active />;
+        <StyledLoader active />;
       </LoaderContainer>
     );
   };

@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+//TODO need to fix the way this is exported
+
 const Input = styled.input`
     display: flex;
     text-align: center;

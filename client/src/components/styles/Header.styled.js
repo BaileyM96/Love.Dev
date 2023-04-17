@@ -27,6 +27,7 @@ export const Text = styled.p`
 color: #FFFFFF;
 font-size: 18px;
 font-weight: bold;
+margin: 5px;
 `;
 
 export const Text1 = styled(Text)`

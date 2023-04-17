@@ -22,16 +22,16 @@ justify-content: flex-start;
 align-items: flex-end;
 padding: 30px;
 `;
-export const LandingContainer = styled(Container)`
-    flex-wrap: wrap;
+export const LandingContainer = styled.div`
+height: 100vh;
+    display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-        @media screen and (max-width: 390px) {
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+    justify-content: center;
+    align-items: center;
+    padding-top: 15%;
+    background-color: #333333;
 `;
+
 
 export const LoginContainer = styled.header`
     display: flex;
@@ -45,6 +45,7 @@ export const LoginContainer = styled.header`
         }
 `;
 
+//Holds the input fields
 export const InputContainer = styled.div`
 display: flex;
 padding-top: 35px;
@@ -54,12 +55,19 @@ justify-content: flex-start;
 height: 100vh;
 `;
 
+//User info for discover page
 export const DiscoverCard = styled.div`
 display: flex;
 border-radius: 0px 0px 10px 10px;
 width: 320px;
 height: 272px;
 background-color: #F5F6F7;
+`;
+
+export const ContinueBack = styled.div`
+display: flex;
+justify-content: center;
+margin-top: 15px;
 `;
 
 

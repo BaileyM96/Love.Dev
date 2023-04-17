@@ -14,12 +14,15 @@ object-fit: contain;
 align-items: center;
 display: flex;
 background-color: #F2F3F5;
+height: 50vh;
 `;
 
 //Css for the profile icon to view your profile
 export const ProfileIcon = styled.button`
 width: 47px;
 height: 47px;
+border-style: solid;
+border-width: 3px;
 border-radius: 100%;
 border-color: #4CC9F0;
 object-fit: contain;
@@ -59,6 +62,7 @@ margin: 10px 10px 10px 0;
 // True and false buttons
 export const SelectButton = styled.button`
 border-radius: 50%;
+border-style: none;
 width: 103px;
 height: 103px;
 background-color: #F5F6F7;

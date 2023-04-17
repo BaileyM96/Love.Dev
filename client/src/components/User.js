@@ -16,7 +16,7 @@ export const User = ({user ,handleProfile, handleLike, handleDislike}) => {
             <BigImageContainer>
                 <LargeProfile>
                     <ProfileImagesmall>
-                    <Img  src={blank} />
+                    {user.images}
                     </ProfileImagesmall>
                 </LargeProfile>
 

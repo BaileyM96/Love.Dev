@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { Loader } from "semantic-ui-react";
+import { Loader, Dropdown } from "semantic-ui-react";
+
 
 export const StyledLoader = styled(Loader)`
 display: flex;
@@ -28,3 +29,4 @@ justify-content: center;
 align-items: center;
 height: 100vh;
 `;
+

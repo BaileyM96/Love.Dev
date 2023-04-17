@@ -170,8 +170,8 @@ export default function SignupForm() {
           required
           /> */}
           <ContinueBack>
-            <Back onClick={handleFormSubmit}>Back</Back>
-            <Continue onClick={handleFormSubmit}>Continue</Continue>
+            <Back>Back</Back>
+            <Continue>Continue</Continue>
           </ContinueBack>
         </InputContainer>
         

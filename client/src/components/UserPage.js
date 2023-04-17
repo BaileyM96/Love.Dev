@@ -89,7 +89,7 @@ export default function UserPage() {
           <BigImageContainer>
             <LargeProfile2>
               <ProfileImagesmall>
-                <Img src={Bailey} />
+                {me.images}
               </ProfileImagesmall>
             </LargeProfile2>
 

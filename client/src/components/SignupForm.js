@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { LandingContainer, InputContainer, GenderContainer, ContinueBack } from "./styles/container.styled";
+import { Gender } from "./styles/Buttons.styled";
 import { Text } from "./styles/Header.styled";
 import H1 from "./styles/singleLineH1.styled";
 import Button from "./styles/pinkButton.styled";
@@ -105,18 +106,35 @@ export default function SignupForm() {
           />
 
           <Text>Gender</Text>
-          <Input
+          <Input 
+          type="text"
+          name="gender"
+          onChange={handleInputChange}
+          value={userFormData.gender}
+          />
+          {/* <div>
+          <Gender
           type="text"
           name="gender"
           onChange={handleInputChange}
           value={userFormData.gender}
           required
-            />
+          >Male</Gender>
+
+          <Gender
+          type="text"
+          name="gender"
+          onChange={handleInputChange}
+          value={userFormData.gender}
+          required
+          >Female</Gender>
+          </div> */}
           
           <Text>Location</Text>
           <Input 
           type='text'
           name='location'
+          // onClick={getUserLocation}
           onChange={handleInputChange}
           value={userFormData.location}
           required
@@ -171,7 +189,7 @@ export default function SignupForm() {
           /> */}
           <ContinueBack>
             <Back>Back</Back>
-            <Continue>Continue</Continue>
+            <Continue onClick={handleFormSubmit}>Continue</Continue>
           </ContinueBack>
         </InputContainer>
         

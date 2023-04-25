@@ -125,7 +125,7 @@ display: flex;
 flex-direction: row;
 align-items: center;
 color: #F72585;
-margin-right: 10px;
+margin-right: 10px
 `;
 
 export const LanguageInfo = styled.div`

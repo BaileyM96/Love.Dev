@@ -27,11 +27,11 @@ export const User = ({user ,handleProfile, handleLike, handleDislike}) => {
                         </NameItems>
                         <Awesome>
                             <FontAwesomeIcon icon={faCode}  />
-                            <LanguageInfo>JavaScript</LanguageInfo>
+                            <LanguageInfo>{user.language}</LanguageInfo>
                         </Awesome>
                         
-                        <div style={{fontWeight: '600'}}>Im looking for:</div>
-                        <div style={{fontWeight: '600'}}>Hobbies:  </div>
+                        <div style={{fontWeight: '600'}}>Im looking for: {user.want}</div>
+                        <div style={{fontWeight: '600'}}>Hobbies:  {user.hobbies}</div>
                         <div style={{fontWeight: '600', overflow: 'hidden'}}>Bio: {user.bio}</div>
                     </NameContainer>
                 </DiscoverCard>

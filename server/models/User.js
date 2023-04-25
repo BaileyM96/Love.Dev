@@ -39,6 +39,19 @@ const userSchema = new Schema({
   bio: {
     type: String,
   },
+  //favorite programming language
+  language: {
+    type: String,
+  },
+  //What you are looking for in relationship
+  //possible dropdown to pick answers
+  want: {
+    type: String,
+  },
+  //hobbies the user likes doing
+  hobbies: {
+    type: String,
+  },
 });
 
 userSchema.pre('save', async function (next) {

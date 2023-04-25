@@ -10,6 +10,9 @@ query users {
     images
     bio
     location
+    language
+    want
+    hobbies
   }
 
 }`
@@ -25,12 +28,40 @@ export const QUERY_ME = gql`
       name
       bio
       location
+      language
+      want
+      hobbies
       dislikes {
         _id
+        dislikedUserId
         dislikedName
       }
     }
   }
+`;
+
+export const QUERY_DISLIKES = gql`
+query dislikes {
+  dislikes {
+    id
+    dislikerUser {
+      id
+      name
+      email
+      location
+      age
+      gender
+    }
+    dislikedUser {
+      id
+      name
+      email
+      location
+      age
+      gender
+    }
+  }
+}
 `;
 
 
@@ -65,18 +96,10 @@ export const QUERY_LIKES = gql`
   }
 `;
 
-//Create new field for dislikes
-export const QUERY_DISLIKES = gql`
-  query getDislikes {
-    dislikes {
-      _id
-      dislikedName
-    }
-  }
-`;
 
 
 
+//Added in new data set for the hobbies and prefered language
 export const QUERY_USER = gql`
   query user($email: String!) {
     user(email: $username) {
@@ -89,6 +112,13 @@ export const QUERY_USER = gql`
       gender
       images
       bio
+      language
+      want
+      hobbies
+      dislikes {
+        dislikedUserId
+        dislikedName
+      }
     }
   }
 `;

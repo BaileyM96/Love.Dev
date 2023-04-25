@@ -1,8 +1,11 @@
 import Discover from './pages/Discover';
+import Navbar from './components/Navbar';
 import Profile from './pages/ProfilePage';
 import Login from './pages/Login';
+import Interests from './components/Interests';
+import Bio from './components/Bio';
 import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter as  Router, Route, Routes, } from 'react-router-dom';
+import { BrowserRouter as  Router, Route, Routes, useLocation } from 'react-router-dom';
 
 
 import './App.css';
@@ -12,6 +15,7 @@ import {
   InMemoryCache,
   createHttpLink,
 } from '@apollo/client';
+
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -35,18 +39,25 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-
 function App() {
+
   return (
     <ApolloProvider client={client}>
       <Router>
-        {/* <Navbar /> */}
-        {/* <div style="{{background: 'linear-gradient(175deg, rgba(218,77,141,1) 39%, rgba(115,10,244,1) 83%)', width: '100%', height: '100%'}}>"> */}
+       {/* <Navbar /> */}
           <div className="container">
             <Routes>
               <Route 
                 path="/"
                 element={<Login />}
+              />
+              <Route 
+              path='/Interests'
+              element={<Interests />}
+              />
+              <Route 
+              path='/Bio'
+              element={<Bio />}
               />
               <Route 
                 path="/Discover" 

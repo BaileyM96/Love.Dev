@@ -1,11 +1,11 @@
-import { Awesome } from "./styles/container.styled";
+import { Awesome, LanguageInfo } from "./styles/container.styled";
 import { NameContainer } from './styles/container.styled';
 import { ProfileImagesmall } from "./styles/Profilephoto";
 import { LargeProfile, SelectButton, Img } from "./styles/Profilephoto";
 import { BigImageContainer, NameItems, TrueFalseContainer, DiscoverCard } from "./styles/container.styled";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCode } from '@fortawesome/free-solid-svg-icons'
-import  blank  from '../images/blank-profile-picture-973460_1280.png';
+import  { blank }  from '../images/blank-profile-picture-973460_1280.png';
 
 
 
@@ -27,12 +27,11 @@ export const User = ({user ,handleProfile, handleLike, handleDislike}) => {
                         </NameItems>
                         <Awesome>
                             <FontAwesomeIcon icon={faCode}  />
-                            {/*TODO Need to add in the users prefered coding language */}
-                                <span style={{ color: 'black', width: '20px', height: '16px'}}> JavaScript</span>
+                            <LanguageInfo>JavaScript</LanguageInfo>
                         </Awesome>
                         
                         <div style={{fontWeight: '600'}}>Im looking for:</div>
-                        <div style={{fontWeight: '600'}}>Hobbies: Hello </div>
+                        <div style={{fontWeight: '600'}}>Hobbies:  </div>
                         <div style={{fontWeight: '600', overflow: 'hidden'}}>Bio: {user.bio}</div>
                     </NameContainer>
                 </DiscoverCard>

@@ -1,9 +1,9 @@
 import { useQuery } from "@apollo/client";
 import { QUERY_ME } from "../utils/queries";
 import Auth from "../utils/auth";
-import { Awesome, DiscoverCard2 } from "./styles/container.styled";
+import { AgeContainer, Awesome, DiscoverCard2 } from "./styles/container.styled";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCode } from "@fortawesome/free-solid-svg-icons";
+import { faCode, faMapPin } from "@fortawesome/free-solid-svg-icons";
 import { NameContainer } from "./styles/container.styled";
 import {
   ProfileImagesmall,
@@ -14,8 +14,8 @@ import {
 } from "./styles/Profilephoto";
 import { BigImageContainer, NameItems } from "./styles/container.styled";
 import { ProfileHeader } from "./styles/Header.styled";
-import Bailey from "../images/Bailey Portrait.jpg";
 import { LoaderContainer, StyledLoader } from "./styles/Semantic.styled";
+import Blank from '../images/blank-profile-picture-973460_1280.png';
 
 export default function UserPage() {
   const { data, loading } = useQuery(QUERY_ME);
@@ -102,23 +102,19 @@ export default function UserPage() {
 
             <DiscoverCard2>
               <NameContainer>
-                <NameItems>
-                  {me.name}, {me.age}
-                </NameItems>
+                <NameItems>{me.name},<AgeContainer> {me.age}</AgeContainer></NameItems>
                 <Awesome>
                   <FontAwesomeIcon icon={faCode} />
-                  <span
-                    style={{ color: "black", width: "20px", height: "16px" }}
-                  >
-                    {" "}
-                    JavaScript
+                  <span style={{ color: "black", width: "20px", height: "16px" }}>
+                    {me.language}     
                   </span>
+                  <FontAwesomeIcon icon={faMapPin} />
                 </Awesome>
 
-                <div style={{ fontWeight: "600" }}>Im looking for:</div>
-                <div style={{ fontWeight: "600" }}>Hobbies: Hello </div>
+                <div style={{ fontWeight: "600" }}>Im looking for: {me.want}</div>
+                <div style={{ fontWeight: "600" }}>Hobbies: {me.hobbies}</div>
                 <div style={{ fontWeight: "600", overflow: "hidden" }}>
-                  Bio: {me.bio}
+                Bio: {me.bio}
                 </div>
               </NameContainer>
             </DiscoverCard2>

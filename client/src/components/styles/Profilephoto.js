@@ -33,6 +33,8 @@ background-color: #F2F3F5;
 export const LargeProfile = styled(Profile)`
 width: 320px;
 height: 320px;
+border-style: solid;
+border-width: 2px;
 `;
 
 //Viewing your actual profile page
@@ -41,6 +43,7 @@ border-radius: 10px;
 border-style: solid;
 border-color: #4CC9F0;
 border-width: 5px;
+height: 264px;
 `;
 //The container that holds your photos
 export const MePhotoContainer = styled.div`

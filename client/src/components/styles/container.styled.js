@@ -61,6 +61,8 @@ display: flex;
 border-radius: 0px 0px 10px 10px;
 width: 320px;
 height: 272px;
+border-style: solid;
+border-width: 2px;
 background-color: #F5F6F7;
 `;
 
@@ -105,7 +107,7 @@ padding: 25px 0 20px 15px;
 export const NameItems = styled.li`
 display: flex;
 font-size: 18px;
-font-weight: bolder;
+font-weight: bold;
 list-style: none;
 color: #212121;
 `;
@@ -115,15 +117,31 @@ export const NameItems2 = styled.li`
 font-size: 16px;
 font-weight: 500;
 list-style: none;
-color: #212121
+color: #212121;
+`;
+
+export const Awesome = styled.div`
+display: flex;
+flex-direction: row;
+align-items: center;
+color: #F72585;
+margin-right: 10px;
+`;
+
+export const LanguageInfo = styled.div`
+color: black;
+margin-left: 5px;
+font-size: 16px;
+font-weight: 500;
+`;
+
+export const Span = styled.span`
+font-weight: 300;
+color: white;
 `;
 
 //Font awesome container 
-export const Awesome = styled.div`
-display: flex;
-align-items: center;
-color: #F72585;
-`;
+
 
 export const NameItems3 = styled(NameItems2)`
 display: flex;
@@ -131,6 +149,11 @@ flex-direction: column;
 color: white;
 font-size: 26px;
 padding-left: 5px;
+`;
+
+export const AgeContainer = styled.div`
+font-size: 18px;
+font-weight: normal;
 `;
 
 export const InterestContainer = styled.div`

@@ -33,7 +33,6 @@ margin-right: 20px;
 width: 88px;
 height: 44px;
 border-radius: 10px;
-border-style: none;
 background-color: #DBDBDB;
 font-size: 18px;
 `;

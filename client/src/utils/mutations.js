@@ -14,8 +14,8 @@ export const LOGIN_USER = gql`
 
 
 export const CREATE_USER = gql`
-  mutation createUser($name: String!, $email: String!, $password: String!, $location: String!, $age: String!, $gender: String!, $images: String, $bio: String!) {
-    createUser (name: $name, email: $email, password: $password, location: $location, age: $age, gender: $gender, images: $images, bio: $bio) {
+  mutation createUser($name: String!, $email: String!, $password: String!, $location: String!, $age: String!, $gender: String!, $images: String, $bio: String!, $language: String!, $want: String!, $hobbies: String!) {
+    createUser (name: $name, email: $email, password: $password, location: $location, age: $age, gender: $gender, images: $images, bio: $bio, language: $language, want: $want, hobbies: $hobbies) {
       token
       user {
         _id
@@ -27,6 +27,9 @@ export const CREATE_USER = gql`
         images
         bio
         password
+        language
+        want
+        hobbies
       }
     }
   }

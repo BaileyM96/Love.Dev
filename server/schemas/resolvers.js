@@ -11,9 +11,10 @@ const resolvers = {
     user: async (parent, { email }) => {
       return User.findOne({ email });
     },
-    dislikes: async (parent, { email }) => {
-      const params = email ? { email } : {};
-      return Dislike.find(params);
+    dislikes: async (parent, args, context) => {
+      if (context.user) {
+        return await Dislike.find({ dislikedUserId: parent._id});
+      }
     },
     me: async (parent, args, context) => {
       if (context.user) {
@@ -31,8 +32,8 @@ const resolvers = {
 
 
   Mutation: {
-    createUser: async (parent, { name, email, password, location, age, gender, images, bio }) => {
-      const user = await User.create({ name, email, password, location, age, gender, images, bio });
+    createUser: async (parent, { name, email, password, location, age, gender, images, bio, language, want, hobbies }) => {
+      const user = await User.create({ name, email, password, location, age, gender, images, bio, language, want, hobbies });
       const token = signToken(user);
       return { token, user };
     },
@@ -95,24 +96,6 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     }
 
-    //////No longer using this liked resolver/////
-
-    // Christians Liked users when logged in
-    // createLike: async (parent, { likedUserId }, { user }) => {
-    //   if (!user) {
-    //     throw new AuthenticationError('You must be logged in to like a user');
-    //   }
-
-    //   const existingLike = await Like.findOne({ likedBy: user._id, likedUser: likedUserId });
-
-    //   if (existingLike) {
-    //     throw new UserInputError('You have already liked this user');
-    //   }
-
-    //   const like = await Like.create({ likedBy: user._id, likedUser: likedUserId });
-
-    //   return like;
-    // },
 
   }
 };

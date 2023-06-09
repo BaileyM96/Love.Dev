@@ -89,15 +89,15 @@ export default function UserPage() {
           <BigImageContainer>
             <LargeProfile2>
               <ProfileImagesmall>
-                {me.images}
+                <Img src={Blank} />
               </ProfileImagesmall>
             </LargeProfile2>
 
             <MePhotoContainer>
-              <MePhotos></MePhotos>
-              <MePhotos></MePhotos>
-              <MePhotos></MePhotos>
-              <MePhotos></MePhotos>
+              <MePhotos src={Blank}></MePhotos>
+              <MePhotos src={Blank}></MePhotos>
+              <MePhotos src={Blank}></MePhotos>
+              <MePhotos src={Blank}></MePhotos>
             </MePhotoContainer>
 
             <DiscoverCard2>

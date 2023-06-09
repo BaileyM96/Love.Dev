@@ -7,6 +7,7 @@ import { User } from "./User";
 import ProfileComponent from "./UserPage";
 import { ProfileIcon, Profile } from "./styles/Profilephoto";
 import Navbar from "./Navbar";
+import Blank from '../images/blank-profile-picture-973460_1280.png';
 // Need to ask Alex how to import the burger icon
 
 export default function Card() {
@@ -125,7 +126,7 @@ export default function Card() {
             fill="#fff"
           />
         </svg>
-        <ProfileIcon onClick={handleProfile}></ProfileIcon>
+        <ProfileIcon onClick={handleProfile} src={Blank}></ProfileIcon>
       </HeaderContainer>
       {
         <User

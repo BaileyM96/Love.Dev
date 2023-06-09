@@ -1,5 +1,9 @@
 const { AuthenticationError, UserInputError } = require('apollo-server-express');
-//TODO add dislike model to the file
+//TODO Add a AWS S3 bucket so the user can upload a photo and photos later on.
+const AWS = require('aws-sdk');
+const { createReadStream, createWriteStream } = require('fs');
+//Create the s3 bucket env in a env file later
+
 const { User, Like, Dislike } = require('../models');
 const { signToken } = require('../utils/auth');
 

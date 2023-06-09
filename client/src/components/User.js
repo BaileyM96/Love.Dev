@@ -5,7 +5,7 @@ import { LargeProfile, SelectButton, Img } from "./styles/Profilephoto";
 import { BigImageContainer, NameItems, TrueFalseContainer, DiscoverCard } from "./styles/container.styled";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCode } from '@fortawesome/free-solid-svg-icons'
-import  { blank }  from '../images/blank-profile-picture-973460_1280.png';
+import Blank from '../images/blank-profile-picture-973460_1280.png';
 
 
 
@@ -16,7 +16,7 @@ export const User = ({user ,handleProfile, handleLike, handleDislike}) => {
             <BigImageContainer>
                 <LargeProfile>
                     <ProfileImagesmall>
-                    {user.images}
+                    <Img src={Blank} />
                     </ProfileImagesmall>
                 </LargeProfile>
 

@@ -14,7 +14,7 @@ object-fit: contain;
 align-items: center;
 display: flex;
 background-color: #F2F3F5;
-height: 50vh;
+height: 38vh;
 `;
 
 //Css for the profile icon to view your profile
